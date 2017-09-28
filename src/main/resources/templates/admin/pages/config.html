@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>配置列表</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="table-screen-box pr">
+            <div class="row">
+            </div>
+            <button class="add_node solute_btn"><span class="icon-chuangjianjiedian iconfont fl"></span>创建流程</button>
+        </div>
+        <div id="main_list" class="table_box"></div>
+        <div class="page-wrapper-cont"></div>
+    </div>
+</div>
+<!--搜索-->
+<script type="text/html" id="searchTpl">
+<dl>
+    <dt style="line-height: 30px;">
+        其他：
+    </dt>
+    <dd>
+        <input type="text" class="input-box pholder_color_aa" name="key" placeholder="请输入流程名称" />
+    </dd>
+    <dd>
+        <button class="btn btn-secondary" id="search">搜索</button>
+    </dd>
+</dl>
+</script>
+<!--创建主流程模态框弹出层-->
+<script type="text/html" id="createTpl">
+    <div class="row ui-back-model">
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">城市</div>
+            <div class="from_input" id="add_city"></div>
+        </div>
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">项目</div>
+            <div class="from_input" id="add_project"></div>
+        </div>
+
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">业务</div>
+            <div class="from_input" id="add_business"></div>
+        </div>
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">盘符</div>
+            <div class="from_input" id="add_pan"></div>
+        </div>
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">用途</div>
+            <div class="from_input" id="add_use"></div>
+        </div>
+    </div>
+</script>
+
+<script>require(['bms_config'])</script>
+</body>
+</html>

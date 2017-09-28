@@ -1,0 +1,184 @@
+.border-bootm input[type=text]{ border: 0;}
+.border-bootm {
+    border: 1px solid #fff!important;
+    border-bottom: 1px solid #ebebeb!important;
+}
+.border-quan {
+    border: 1px solid #fff!important;
+}
+.tw-login{
+	position:fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: url(Login-bj.jpg) no-repeat;
+}
+.tw-logo{
+	margin: 30% 20% 20%;
+	background-size: 150px;
+}
+.tw-logo img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.login-text{
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	color: #2e4753;
+}
+.tw-input-group{
+	margin: 5%;
+}
+.tw-input-text{
+	background: #fff;
+	border-radius: 10px;
+	padding: 3px;
+}
+.tw-input-text div{
+	position: relative;
+	padding-left: 40px;
+}
+.tw-icon-yonghuming{
+	width: 20px;
+	height: 20px;
+	background: url(../images/icon-yonghuming.png) no-repeat left center;
+	background-size: 20px;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+}
+.tw-icon-mima{
+	width: 25px;
+	height: 25px;
+	background: url(../images/icon-mima.png) no-repeat left center;
+	background-size: 20px;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+}
+.tw-icon-yanzhengma{
+	width: 25px;
+	height: 25px;
+	background: url(../images/icon-yanzhengma.png) no-repeat left center;
+	background-size: 20px;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+}
+.tw-icon-dianhua{
+	width: 25px;
+	height: 25px;
+	background: url(../images/icon-phone.png) no-repeat left center;
+	background-size: 20px;
+	position: absolute;
+	left: 15px;
+	top: 10px;
+}
+.tw-yanzhengma{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.tw-btn-login{
+	width: 100%;
+    background-color:rgba(84,158,223,0.8);
+    height: 45px;
+    line-height: 45px;
+    border-radius: 10px;
+    font-size: 1em;
+    color: #fff;
+    margin-top:10px;
+}
+.tw-btn-login.closeicon{
+	background: #d5d5d5;
+	cursor: url(inclick.cur),auto;
+}
+.mui-text-center{ text-align:center}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+  line-height: 21px;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 10px 15px;
+  -webkit-user-select: text;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 3px;
+  outline: 0;
+  background-color: #fff;
+  -webkit-appearance: none;
+}
+		.mui-icon {
+  font-family: Muiicons;
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+.app_shouji{ position:absolute !important ; padding:0px 5px !important; right:5px; top:6px; color:#424242; border:1px #b5b5b5 solid; border-radius:5px; background:# height:25px; line-height:25px; text-align:center; font-size:12px; line-height:25px;}
+.denglu_guize{ padding:5px 15px; font-size:14px;}
+.guize_biaoti{ color:#bebebe;}
+.denglu_guize span{ color:#f0f0f0; font-size:12px; }
+.zhaohuimima{ float: left; color:#fff ;}
+.jiechubandin{ float: right; color: #fff;}
+.paddwvx10{ padding: 10px 10px;}
+.login-text{ bottom: 0px;}
+.xindongxi{
+	position:fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+.xindongxi img{
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+}
+.ihpone_bj{display: block;}
+.pc_bj{display: none;}
+@media only screen and (min-width:1000px) {
+	.tw-input-text{float: left; width: 40%; margin: 15% 5%;}
+	.tw-logo{ float: left; margin: 15% 5% 5% 10%; width: 30%;}
+	.tw-logo img{ width: 100%;}
+	.ihpone_bj{display: none;}
+	.pc_bj{display: block;}
+}
+@media only screen and (min-width:1000px) and (max-width:1200px) {
+	.tw-logo{ float: left; margin: 20% 5% 5% 10%; width: 30%;}
+}
+input[type=code]{
+  line-height: 21px;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 10px 15px;
+  -webkit-user-select: text;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 3px;
+  outline: 0;
+  background-color: #fff;
+  -webkit-appearance: none;
+}
+input:-webkit-autofill { 
+-webkit-box-shadow: 0 0 0px 1000px #fff inset; 
+}

@@ -1,0 +1,120 @@
+	<nav class="navbar user-info-navbar teshu_padd" role="navigation"> 
+      <!-- Left links for user info navbar -->
+      <ul class="user-info-menu left-links list-inline list-unstyled">
+        <li class="hidden-sm hidden-xs"> <a href="#" data-toggle="sidebar"> <i class="fa-bars"></i> </a> </li>
+      </ul> 
+      
+      <!-- Right links for user info navbar -->
+      <ul class="user-info-menu right-links list-inline list-unstyled">
+        <li class="search-form">
+          
+          <!-- <form method="get" action="extra-search.html">
+            <input type="text" name="s" class="form-control search-field" placeholder="请输入搜索内容..." />
+            <button type="submit" class="btn btn-link"> <i class="linecons-search"></i> </button>
+          </form> -->
+        </li>
+        <li class="dropdown user-profile"> <a href="#" data-toggle="dropdown"> <span id="position"><i class="fa-angle-down"></i> </span> </a>
+          <ul class="dropdown-menu user-profile-menu list-unstyled" id="titleList">
+          </ul>
+        </li>
+        <li class="dropdown user-profile"> <a href="#" data-toggle="dropdown"> <img src="/xhjBMS/security/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" /> <span id="userProfile"><i class="fa-angle-down"></i> </span> </a>
+          <ul class="dropdown-menu user-profile-menu list-unstyled">
+            <li> <a href="#" data-toggle="modal" data-target="#Mima" id="changepassword"> <i class="fa-user"></i> 修改密码 </a> </li>
+            <li class="last" onclick="logout()">
+				<a href="javascript:void(0)">
+					<i class="fa-times"></i> 退出系统
+				</a>
+			</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+   <input type=button value="返回" class="btn btn-primary colse_buttom" onclick="jump()"> </h1>
+    <style>
+    .colse_buttom{position: absolute;
+    top: 22px;
+    left: 50px;
+    background: #fff;
+    color: #5A5A5A;
+    border: 1px #e3e3e3 solid;
+    border-radius: 5px;}
+    .main-content-new{
+    padding: 30px 0;
+    padding-bottom: 0;
+}
+	.user-info-navbar.teshu_padd{
+		margin: 0 0 0 0;
+	}
+    </style>
+    
+    <script >
+			 var userName=getCookie("username");
+			 $.ajax({ 
+				url :'/login/findByAccount/'+userName,
+				dataType : "json", 
+				type : "get",
+				async:false,
+				contentType : "application/json;charset=utf-8",
+				success : function(result){
+						if(result.status==200){
+							var userProfile=result.obj.userProfile;
+							var dept=result.obj.dept;
+							//$("#userProfile").html(userProfile.fullname+"&nbsp;&nbsp;"+dept.departmentName+"&nbsp;&nbsp;")
+							$("#userProfile").html(userProfile.fullname+"&nbsp;&nbsp;")
+							var sHtml='';
+							var switchPosition=getCookie('switchPosition');
+							$.each(result.obj.position,function(i,title){
+								if(switchPosition!=1){
+									if(title.issecondarypost==1){
+										$("#position").html(title.department_name+':'+title.title_name+':'+title.city_name+'&nbsp;&nbsp;')
+									}
+								}else{
+									$("#position").html(getCookie('UserProfile'));
+								}
+									
+								var UserProfile=title.department_name+':'+title.title_name+':'+title.city_name+'&nbsp;&nbsp;';
+								sHtml+='<li onclick="swithTitle(\''+userName+'\','+title.tbl_department_id+','+title.tbl_title_id+',\''+UserProfile+'\','+title.cityid+')"><a href="#">'+title.department_name+':'+title.title_name+':'+title.city_name+'</a></li>';
+							});
+							$("#titleList").html(sHtml);
+						}else if(result.status==500){
+							//logout();
+						}
+				}
+			
+			}); 
+			 
+			 
+			 function logout(){
+				 $.ajax({ 
+						url :'/login/logout/'+userName,
+						dataType : "json", 
+						type : "get",
+						async:true,
+						contentType : "application/json;charset=utf-8",
+						success : function(result){
+							LogindelCookie();
+							if(result.status==200){
+								window.location.href="/login/showLogin";
+							}else if(result.status==500){
+								window.location.href="/login/showLogin";
+							}
+						}
+						
+				 });
+						
+			 }
+
+			 function swithTitle(userName,departmentId,titleId,UserProfile,cityId,departName){
+				 	setCookie("departName",departName,'', '/', urlhref);
+					setCookie("switchPosition",1,'', '/', urlhref);
+					setCookie('deptId',departmentId,'', '/', urlhref);
+					setCookie("UserProfile",UserProfile,'', '/', urlhref);
+					setCookie("titleId",titleId,'', '/', urlhref);
+					setCookie("auth_cityId",cityId,'', '/', urlhref);
+					$("#position").html(UserProfile);
+					 window.location.href="/admin/version/versionList?sysType=1456&dataTime="+dataTime;
+				}
+			 function jump(){
+				  window.location.href=document.referrer;
+			 }
+			</script>

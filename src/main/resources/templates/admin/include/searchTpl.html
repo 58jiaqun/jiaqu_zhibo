@@ -1,0 +1,258 @@
+<script type="text/html" id="invalidParamTpl">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">审核状态:</div>
+            <div class="from_input" id="checkState"></div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">部门:</div>
+            <div class="from_input" id="departName">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">申请人:</div>
+            <div class="from_input" id="requestUser">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">无效原因:</div>
+            <div class="from_input" id="invalidType">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">举报原因:</div>
+            <div class="from_input" id="disableChildReason">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">房源编号:</div>
+            <div class="from_input" id="houseNumber">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">申请时间:</div>
+            <div class="from_input distable house_input_box" id="appliTime">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">副总区域:</div>
+            <div class="from_input" id="qyId">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">审核类型:</div>
+            <div class="from_input" id="checkType">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-secondary">搜索</button>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="districtCheckTpl">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">房源审核状态:</div>
+            <div class="from_input" id="houseSourceStatus">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">城市:</div>
+            <div class="from_input" id="cityId">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">系统类型:</div>
+            <div class="from_input" id="htype">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">业务类型:</div>
+            <div class="from_input" id="houseType">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">房源编号:</div>
+            <div class="from_input" id="districtNumber">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">申请时间:</div>
+            <div class="from_input distable house_input_box" id="districtappliTime">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">审核时间:</div>
+            <div class="from_input distable house_input_box" id="auditTime">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-secondary">搜索</button>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="houseAuditCheckTpl">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">房源审核状态:</div>
+            <div class="from_input" id="core_houseSourceStatus">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">城市:</div>
+            <div class="from_input" id="core_cityId">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">系统类型:</div>
+            <div class="from_input" id="core_htype">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">业务类型:</div>
+            <div class="from_input" id="core_houseType">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">副总区域:</div>
+            <div class="from_input" id="core_qyId">
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">房源编号:</div>
+            <div class="from_input" id="core_Number">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">部门:</div>
+            <div class="from_input" id="core_departName">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">申请人:</div>
+            <div class="from_input" id="core_requestUser">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">申请时间:</div>
+            <div class="from_input distable house_input_box" id="core_appliTime">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="input-label width100 txt_right fl">审核时间:</div>
+            <div class="from_input distable house_input_box" id="core_Time">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-secondary">搜索</button>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="exclusiveEraTpl">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">城市:</div>
+            <div class="from_input" id="limit_cityId">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">房源编号:</div>
+            <div class="from_input" id="limit_Number">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">副总区域:</div>
+            <div class="from_input" id="limit_qyId">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">签订店组:</div>
+            <div class="from_input" id="limit_departName">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">签订人员:</div>
+            <div class="from_input" id="limit_requestUser">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">审核状态:</div>
+            <div class="from_input" id="limit_checkState"></div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">开始时间:</div>
+            <div class="from_input distable house_input_box" id="limit_appliTime">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">到期时间:</div>
+            <div class="from_input distable house_input_box" id="limit_Time">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-secondary">搜索</button>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="coreInfoCheckTpl">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">城市:</div>
+            <div class="from_input" id="core_info_cityId">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">房源编号:</div>
+            <div class="from_input" id="core_info_houseNumber">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">状态:</div>
+            <div class="from_input" id="core_info_status">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="input-label width100 txt_right fl">申请时间:</div>
+            <div class="from_input" id="core_info_time">
+            </div>
+        </div>
+            <button class="btn btn-secondary">搜索</button>
+        </div>
+    </div>
+</script>

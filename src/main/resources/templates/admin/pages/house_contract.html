@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="page-wrapper tion-house special_padd">
+        <div class="table-seach-box">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">审核状态:</div>
+                    <div class="from_input" id="check_status"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">合同状态:</div>
+                    <div class="from_input" id="contract_status"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">面积:</div>
+                    <div class="from_input distable house_input_box" id="building_size"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">房源编号:</div>
+                    <div class="from_input" id="house_source_number"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">门店:</div>
+                    <div class="from_input" id="department_name"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"></div>
+                    <div class="from_input" id="contract_number"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"></div>
+                    <div class="from_input" id="time_type"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"></div>
+                    <div class="from_input distable house_input_box" id="time"></div>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-secondary" id="search">搜索</button>
+                    <button class="Pro-btn btn-warning" id="clear_value">重置</button>
+                </div>
+            </div>
+        </div>
+        <div class="switch_tab">
+
+        </div>
+        <div class="page-wrapper-cont">
+
+        </div>
+</div>
+</body>
+</html>
+<script>
+    require(['bms_contractList']);
+</script>

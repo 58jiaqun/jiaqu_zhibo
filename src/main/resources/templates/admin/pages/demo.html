@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>房源列表</title>
+    <%include("/admin/include/cssjs.html"){}%>
+    <style>
+        .mytable{
+            border:none;
+        }
+        .mytable td, .mytable th{
+            border:none;
+        }
+    </style>
+</head>
+<body>
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="table-screen-box">
+            <div class="row" id="search_condition">
+                <dl>
+                    <dt>
+                        分类：
+                    </dt>
+                    <dd class="active">
+                        不限
+                    </dd>
+                    <dd>
+                        区域
+                    </dd>
+                    <dd>
+                        地铁
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        学区：
+                    </dt>
+                    <dd class="active">
+                        不限
+                    </dd>
+                    <dd>
+                        小学
+                    </dd>
+                    <dd>
+                        中学
+                    </dd>
+                    <dd>
+                        高中
+                    </dd>
+                    <dd>
+                        幼儿园
+                    </dd>
+                    <dd>
+                        托儿所
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        户型：
+                    </dt>
+                    <dd class="active">
+                        不限
+                    </dd>
+                    <dd>
+                        一室
+                    </dd>
+                    <dd>
+                        两室
+                    </dd>
+                    <dd>
+                        三室
+                    </dd>
+                    <dd>
+                        四室
+                    </dd>
+                    <dd>
+                        五室
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        面积：
+                    </dt>
+                    <dd class="active">
+                        不限
+                    </dd>
+                    <dd>
+                        50m²以下
+                    </dd>
+                    <dd>
+                        70-90m²
+                    </dd>
+                    <dd>
+                        90-130m²
+                    </dd>
+                    <dd>
+                        130-150m²
+                    </dd>
+                    <dd>
+                        150-200m²
+                    </dd>
+                    <dd>
+                        200-300m²
+                    </dd>
+                    <dd>
+                        300m²以上
+                    </dd>
+                </dl>
+                <div class="hide_list ">
+                    <dl>
+                        <dt>
+                            总价：
+                        </dt>
+                        <dd class="active">
+                            不限
+                        </dd>
+                        <dd>
+                            50万以下
+                        </dd>
+                        <dd>
+                            80-100万
+                        </dd>
+                        <dd>
+                            100-120万
+                        </dd>
+                        <dd>
+                            120-150万
+                        </dd>
+                        <dd>
+                            150-200万
+                        </dd>
+                        <dd>
+                            200-300万
+                        </dd>
+                        <dd>
+                            300万以上
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            朝向：
+                        </dt>
+                        <dd class="active">
+                            不限
+                        </dd>
+                        <dd>
+                            东
+                        </dd>
+                        <dd>
+                            南
+                        </dd>
+                        <dd>
+                            西
+                        </dd>
+                        <dd>
+                            北
+                        </dd>
+                        <dd>
+                            东南
+                        </dd>
+                        <dd>
+                            东西
+                        </dd>
+                        <dd>
+                            东北
+                        </dd>
+                        <dd>
+                            南北
+                        </dd>
+                        <dd>
+                            西南
+                        </dd>
+                        <dd>
+                            西北
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            用途：
+                        </dt>
+                        <dd class="active">
+                            不限
+                        </dd>
+                        <dd>
+                            住宅
+                        </dd>
+                        <dd>
+                            别墅
+                        </dd>
+                        <dd>
+                            公寓
+                        </dd>
+                        <dd>
+                            写字楼
+                        </dd>
+                        <dd>
+                            商铺
+                        </dd>
+                        <dd>
+                            车库
+                        </dd>
+                        <dd>
+                            其他
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            装修：
+                        </dt>
+                        <dd class="active">
+                            不限
+                        </dd>
+                        <dd>
+                            毛坯
+                        </dd>
+                        <dd>
+                            简单装修
+                        </dd>
+                        <dd>
+                            中档装修
+                        </dd>
+                        <dd>
+                            高档装修
+                        </dd>
+                        <dd>
+                            豪华装修
+                        </dd>
+                        <dd>
+                            精装修
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            类型：
+                        </dt>
+                        <dd class="active">
+                            不限
+                        </dd>
+                        <dd>
+                            板楼结构
+                        </dd>
+                        <dd>
+                            塔楼结构
+                        </dd>
+                        <dd>
+                            低层住宅
+                        </dd>
+                        <dd>
+                            多层住宅
+                        </dd>
+                        <dd>
+                            高层住宅
+                        </dd>
+                        <dd>
+                            小高层住宅
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            盘型：
+                        </dt>
+                        <dd class="active">
+                            不限
+                        </dd>
+                        <dd>
+                            B盘
+                        </dd>
+                        <dd>
+                            C盘
+                        </dd>
+                        <dd>
+                            X盘
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="table-seach-box dis">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-label width100 txt_right fl">楼盘名称:</div>
+                    <div class="from_input" id="house_name"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">栋座:</div>
+                    <div class="from_input" id="house_build"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">单元:</div>
+                    <div class="from_input" id="house_unit"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">房源编号:</div>
+                    <div class="from_input" id="house_no"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">楼层:</div>
+                    <div class="from_input distable house_input_box" id="house_floor"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">楼盘名称（异步）:</div>
+                    <div class="from_input" id="house_belong"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">经纪人:</div>
+                    <div class="from_input" id="house_person"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">录入时间:</div>
+                    <div class="from_input distable house_input_box" id="house_time"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">单选：</div>
+                    <div class="from_input" id="house_radio"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">复选：</div>
+                    <div class="from_input" id="house_checkbox"></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="input-label width100 txt_right fl">可复制：</div>
+                    <div class="from_input" id="repeat"></div>
+                </div>
+                <div class="col-md-12" id="upload"></div>
+                <div class="col-md-4">
+                    <button class="btn btn-secondary" id="search">搜索</button>
+                    <button class="Pro-btn btn-warning" id="reset">重置</button>
+                </div>
+            </div>
+        </div>
+        <div class="more_icon">更多选项</div>
+        <div class="page-wrapper-cont"></div>
+    </div>
+</div>
+<script>
+    require(['bms_demo']);
+</script>
+</body>
+</html>

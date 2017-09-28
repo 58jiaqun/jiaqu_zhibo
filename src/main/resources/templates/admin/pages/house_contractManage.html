@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>托管资源</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="page-wrapper tion-house special_padd">
+    <div class="table-seach-box">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">托进合同编号:</div>
+                <div class="from_input" id="contract_number"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">状态:</div>
+                <div class="from_input" id="contract_status"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">面积:</div>
+                <div class="from_input distable house_input_box" id="building_area"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">价格:</div>
+                <div class="from_input distable house_input_box" id="price"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl"></div>
+                <div class="from_input distable house_input_box" id="people_type"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">录入时间</div>
+                <div class="from_input distable house_input_box" id="in_time"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button class="btn btn-secondary" id="search">搜索</button>
+                <button class="Pro-btn btn-warning" id="clear_value">重置</button>
+            </div>
+        </div>
+    </div>
+    <div class="switch_tab">
+        <ul class="fl">
+            <li class="active">整租</li>
+            <li>如租</li>
+        </ul>
+    </div>
+    <div class="page-wrapper-cont"></div>
+</div>
+</body>
+</html>
+<script>
+    require(['bms_contractManage']);
+</script>

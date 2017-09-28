@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房源无效审核</title>
+    <%include("/admin/include/cssjs.html"){}%>
+    <link rel="stylesheet" href="/css/viewer.min.css">
+</head>
+<body>
+<div class="page-wrapper tion-house special_padd">
+    <div class="page-wrapper-hread" id="tableName">
+        房源无效审核
+    </div>
+    <div class="table-seach-box"  id="search_condition">
+
+
+    </div>
+
+    <div class="page-wrapper-cont">
+        <div class="panel-body new_double">
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+<%include("/admin/include/dialogTbl.html"){}%>
+<%include("/admin/include/searchTpl.html"){}%>
+<script>
+    require(['house_District_check']);
+</script>
+</html>

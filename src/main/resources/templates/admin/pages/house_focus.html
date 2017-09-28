@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>房源聚焦</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="table-screen-box">
+            <div class="row" id="search_condition">
+                    <dl>
+                        <dt>
+                            类型：
+                        </dt>
+                        <dd class="active">
+                            全部
+                        </dd>
+                        <dd>
+                            店聚焦
+                        </dd>
+                        <dd>
+                            区聚焦
+                        </dd>
+                    </dl>
+            </div>
+        </div>
+        <div class="page-container">
+            <div class="main-content">
+                <div class="row pr">
+                    <div class="page-wrapper-cont">
+                        <div class="switch_tab">
+                            <ul class="fl">
+                                <li class="active">
+                                    我申请的
+                                </li>
+                                <li>
+                                    已审核
+                                </li>
+                            </ul>
+                            <div class="fr house_num">共<span id="recordCount"></span>条房源</div>
+                        </div>
+                        <div id="tblContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%include("/admin/include/dialogTbl.html"){}%>
+<script>
+    require(['bms_house_focus']);
+</script>
+</body>
+</html>

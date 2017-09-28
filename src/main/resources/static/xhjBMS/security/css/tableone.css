@@ -1,0 +1,29 @@
+﻿ body { font-family:'微软雅黑',"Microsoft Yahei"; margin:0 auto; padding:0; font-size:16px;}
+   div, form, ul, ol, li, span, p, dl, dt, dd { margin:0; padding:0; border:0; }
+   img, a img { border:0; margin:0; padding:0; }
+   h1, h2, h3, h4, h5, h6 { margin:0; padding:0;}   
+   table, td, input { font-size:12px; padding:0; font-family:'微软雅黑',"Microsoft Yahei"; }
+   img{ vertical-align:middle;}
+   .pull-right {float:right; }
+   .pull-left {float:left; }
+   .list-unstyled { padding-left: 0; list-style: none;}
+   .font14 { font-size:14px;}
+   *, :before, :after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+   a { text-decoration:none;}
+   .word { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;display:block; }
+   i {font-style:normal; }
+   a:hover {text-decoration:none; }
+.dayin_logo{ width:130px; height: 70px;display:inline-block; background: url("../images/logo_dayin.png"); background-size:130px 70px;position: absolute; top:-10px; left:10px;}	
+/*.dayin_logo{width:130px; height: 70px; display:inline-block; background: url("../images/logo_dayin.png"); background-size:130px 70px; position: absolute; top:10px; left:10px;}*/
+   .table_wrap { width:794px;margin:50px auto; position: relative;}
+   .table_wrap>.title { font-size:22px;font-weight:600;padding-top:25px;padding-bottom:25px;text-align:center;}
+   .table_wrap>.time { font-size:12px;padding-bottom:5px;text-align:right;padding-right:15px;color:#666;border-bottom:2px solid #787878;margin-bottom:10px;}
+   .table_content { width:774px;margin:auto;}
+   td { border:1px solid #333;padding:13px;font-size:12px;font-weight:600;text-align:center;width:124px;}
+   table { border-collapse:collapse;}
+   td.width { width:200px;}
+
+    .sm { font-size:16px;color:#333;padding-top:70px;padding-bottom:110px;}
+    .sm > ol { padding-left:18px;}
+    .gz { font-size:14px;text-align:right;padding-right:200px;}
+	.btn_icon{ width: 150px; position: absolute; bottom: 50px; right: 100px; height: 50px; line-height:50px; color: #979797; display: inline-block; text-align: center; border:1px #B4B2B2 solid; border-radius: 5px; background: #DDD;}
