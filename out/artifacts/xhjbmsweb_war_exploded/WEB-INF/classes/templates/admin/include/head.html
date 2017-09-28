@@ -1,0 +1,195 @@
+		<link rel="stylesheet" href="/xhjBMS/security/css/fonts/linecons/css/linecons.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/fonts/fontawesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/bootstrap.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/xenon-core.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/xenon-forms.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/xenon-components.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/xenon-skins.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/custom.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/fonts/elusive/css/elusive.css"/>
+		<link rel="stylesheet" href="/xhjBMS/security/css/style-responsive.css"/>
+        <link rel="stylesheet" href="/xhjBMS/security/css/style.css"/>
+        <link rel="stylesheet" href="/xhjBMS/security/js/datepicker/bootstrap-datetimepicker.min.css"/> <!-- 路径错误 -->
+		<script type="text/javascript" src="/xhjBMS/security/js/jquery-1.11.1.min.js"></script>
+		<script src="/xhjBMS/security/js/jquery.cookie.js"></script>
+		<style type="text/css">
+		#content-messages{ display:none;}
+		.zzxxgl_bmlbgl_plsc,
+		.zzxxgl_bmlbgl_tjyjcd,
+		.zzxxgl_bmlbgl_tjxjcd,
+		.zzxxgl_bmlbgl_xg,
+		.zzxxgl_bmlbgl_rz,
+		.zzxxgl_bmgl_plsc,
+		.zzxxgl_bmgl_tjyjcd,
+		.zzxxgl_bmgl_tjxjcd,
+		.zzxxgl_bmgl_xg,
+		.zzxxgl_bmgl_rz,
+		.zzxxgl_xjgl_plsc,
+		.zzxxgl_xjgl_xz,
+		.zzxxgl_xjgl_xg,
+		.zzxxgl_zwgl_plsc,
+		.zzxxgl_zwgl_tjzw,
+		.zzxxgl_zwgl_xg,
+		.zzxxgl_zwgl_rz,
+		.rsxxgl_yggl_rzsh,
+		.rsxxgl_yggl_zzsh,
+		.rsxxgl_yggl_dpsh,
+		.rsxxgl_yggl_lzsh,
+		.rsxxgl_yggl_czmm,
+		.rsxxgl_yggl_jrhmd,
+		.rsxxgl_yggl_fsgh,
+		.rsxxgl_yggl_jsgh,
+		.rsxxgl_yggl_dbzlsc,
+		.rsxxgl_yggl_ygqj,
+		.rsxxgl_yggl_xg,
+		.rsxxgl_yggl_bmyggl_rzsq,
+		.rsxxgl_yggl_bmyggl_zzsq,
+		.rsxxgl_yggl_bmyggl_dpsq,
+		.rsxxgl_yggl_bmyggl_lzsq,
+		.rsxxgl_yggl_zpryrz_rzsq,
+		.rsxxgl_yggl_lzfy,
+		.rsxxgl_yggl_dy,
+		.rsxxgl_bmzy_bmyggl_rzsq,
+		.rsxxgl_bmzy_bmyggl_zzsq,
+		.rsxxgl_bmzy_bmyggl_dpsq,
+		.rsxxgl_bmzy_bmyggl_lzsq,
+		.rsxxgl_bmzy_zpryrz_rzsq,
+		.rsxxgl_rzwshrygl_bmyggl_rzsh,
+		.rsxxgl_rzwshrygl_zpryrz_rzsq,
+		.rsxxgl_hmd_hf,
+		.rsxxgl_hmd_dc,
+		.xtbggl_xwgg_xz,
+		.xtbggl_xwgg_plsc,
+		.bbgl_dc,
+		.zpgl_wdhxr_xz,
+		.zpgl_wdhxr_apms,
+		.zpgl_wdhxr_dbq,
+		.zpgl_wdhxr_xg,
+		.zpgl_wdhxr_sc,
+		.zpgl_wdhxr_qxms,
+		.zpgl_wdhxr_fp,
+		.zpgl_wdms_msap_lysq,
+		.zpgl_wdms_msfk_fk,
+		.zpgl_zpbb_dc,
+		.zpgl_zppm_dc{
+			display:none;
+		}
+		.importantRed{color: red; font-weight: bold;}
+		.normalizeBlack{color: black;}
+		</style>
+		
+		<script type="text/javascript">
+		 	var dataTime=new Date().getTime();
+		 	var defaultTileId=[30,17,20,210180];//实习经纪人，综合经纪人，店东，商圈经理
+		 	var cityId=getCookie("auth_cityId")-0;
+		 	if(cityId==1){
+		 		cityId=1;
+		 	}
+			var urlArr=location.hostname.split(".");
+			var urlhref, domainArr = [];
+			for(var i=urlArr.length-1,len=0;i>0&&len<2;i--,len++){
+				domainArr.unshift(urlArr[i]);
+			}
+			urlhref=domainArr.join('.');
+			
+			var titleMap= {"商圈经理":210180,"店东":20,"综合经纪人":17,"实习经纪人":30};
+			function node(id,name,next){
+				this.id = id || '';
+				this.name = name || '' ;
+				this.next = next || null ;
+			}
+			var likeArr=[];
+			var i=0
+			for(var k in titleMap){
+				 if(i==0){
+					 likeArr.push(new node(titleMap[k],k));
+				 }else{
+					 likeArr.push(new node(titleMap[k],k,likeArr[likeArr.length-1]));
+				 }
+				 i++;
+			}
+
+			function  find(id){
+				var node=likeArr[likeArr.length-1];
+				function recursion(){
+					if(node.id==id){
+						return node.next;
+					}else{
+						node=node.next;
+						return  node && recursion();
+					}
+				}
+				return recursion();
+			}
+			
+			function demotion(id){
+				var node=likeArr[likeArr.length-1];
+				function  recursion(){
+					if(node.id==id){
+						return likeArr[likeArr.indexOf(node)+1];
+					}else{
+						node=node.next;
+						return node&&recursion();
+					}
+				}
+				return recursion();
+			}
+			 /**
+			  * [delCookie 删除cookie]
+			  * @param  {[type]} name   [cookie名]
+			  * @param  {[type]} path   [路径]
+			  * @param  {[type]} domain [域]
+			  * @param  {[type]} secure [是否安全cookie]
+			  * @return {[type]}        [description]
+			  */
+			 function delCookie(name, path, domain, secure) {
+			     var value = getCookie(name);
+			     if (value != null) {
+			         var exp = new Date();
+			         exp.setMinutes(exp.getMinutes() - 1000);
+			         path = path || "/";
+			         document.cookie = name + '=;expires=' + exp.toGMTString() + (path ? ';path=' + path : '') + (domain ? ';domain=' + domain : '') + (secure ? ';secure' : '');
+			     }
+			 }
+
+
+			 /**
+			  * [getCookie 获取cookie]
+			  * @param  {[type]} name [cookie名]
+			  * @return {[type]}      [description]
+			  */
+			 function getCookie(name) {
+			     var reg = new RegExp("(^| )" + name + "(?:=([^;]*))?(;|$)"),
+			         val = document.cookie.match(reg);
+			     return val ? (val[2] ? decodeURIComponent(val[2]) : "") : null;
+			 }
+
+			 /**
+			  * [setCookie 设置cookie]
+			  * @param {[type]} name    [cookie名]
+			  * @param {[type]} value   [值]
+			  * @param {[type]} expires [过期时间，单位分钟]
+			  * @param {[type]} path    [路径]
+			  * @param {[type]} domain  [域]
+			  * @param {[type]} secure  [是否是安全cookie]
+			  */
+			 function setCookie(name, value, expires, path, domain, secure) {
+			     var exp = new Date(),
+			         expires = arguments[2] || null,
+			         path = arguments[3] || "/",
+			         domain = arguments[4] || null,
+			         secure = arguments[5] || false;
+			     expires ? exp.setMinutes(exp.getMinutes() + parseInt(expires)) : "";
+			     document.cookie = name + '=' + encodeURIComponent(value) + (expires ? ';expires=' + exp.toGMTString() : '') + (path ? ';path=' + path : '') + (domain ? ';domain=' + domain : '') + (secure ? ';secure' : '');
+			 }
+			  function LogindelCookie(){
+					delCookie("switchPosition",'/', urlhref);
+					delCookie('deptId','/', urlhref);
+					delCookie("UserProfile",'/', urlhref);
+					delCookie("titleId",'/', urlhref);
+					delCookie("username",'/', urlhref);
+					delCookie("sso_token",'/', urlhref);
+					delCookie("auth_cityId",'/', urlhref);
+				}
+			 
+		</script>

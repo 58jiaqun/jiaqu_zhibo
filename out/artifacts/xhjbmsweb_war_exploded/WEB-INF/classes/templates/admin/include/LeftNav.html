@@ -1,0 +1,280 @@
+<!-- Modal 4 (Confirm)-->
+	<div class="modal fade" id="Mima" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">密码修改</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<tbody>
+					          <tr>
+					             <td><input id="userLoginId" type="hidden" /></td>
+					          </tr>
+					          <tr>
+					            <td width="90">旧密码</td>
+					            <td><input id="currentPassword" type="password"  class="form-control" /></td>
+					          </tr>
+					          <tr>
+					            <td>新密码</td>
+					            <td><input id="newPassword" type="password"  class="form-control" /></td>
+					          </tr>
+					          <tr>
+					            <td>确认密码</td>
+					            <td><input id="newPasswordVerify" type="password"  class="form-control" /></td>
+					          </tr>
+					     </tbody>
+			      	</table>
+				</div>	
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info" onclick="submitForm()">保存</button>
+					<button type="button" class="btn btn-danger" id="closebtn" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="modal fade" id="infoModal" data-backdrop="static"></div>
+<script>
+    $("a[href=#infoModal]").click(function(){
+        $("#infoModal").load($(this).attr("data-url"));
+    });
+    function submitForm(){
+    	var userLoginId =$("#userLoginId").val();
+    	var currentPassword =$("#currentPassword").val();
+    	var newPassword =$("#newPassword").val();
+    	var newPasswordVerify =$("#newPasswordVerify").val();
+    	if(currentPassword == ''){
+    		alert("请输入旧密码");
+    		return;
+    	}
+    	if(newPassword == ''){
+    		alert("请输入新密码");
+    		return;
+    	}
+    	if(newPassword != newPasswordVerify){
+    		alert("两次密码输入不一致！");
+    		return;
+    	}
+    	var jsondata = new Object();
+    	jsondata.userLoginId = getCookie("username");
+    	jsondata.password = currentPassword;
+    	jsondata.newPassword = newPassword;
+    	$.ajax({
+    		type : "post",
+    		dataType : "json",
+    		url : "/admin/employee/upatePassword",
+    		data : JSON.stringify(jsondata),
+    		contentType : "application/json;charset=utf-8",
+    		success : function(data) {
+    			if(data.success){
+    				alert("修改成功");
+    				$("#currentPassword").val("");
+    				$("#newPassword").val("");
+    				$("#newPasswordVerify").val("");
+    				$("#closebtn").click();
+    				delCookie("UserProfile");
+					delCookie("departmentid");
+					delCookie("switchPosition");
+					window.location.href="/login/showLogin";
+    			}else{
+    				alert(data.msg)
+    			}
+    		}
+    	});
+    } 
+</script>
+<div class="page-container">
+<div class="sidebar-menu toggle-others fixed">
+    <div class="sidebar-menu-inner">
+      <header class="logo-env"> 
+        <!-- logo -->
+        <div class="logo"> <a href="#" class="logo-expanded"> <img src="/xhjBMS/security/images/logo@2x.png" width="80" alt="" /> </a> <a href="#" class="logo-collapsed"> <img src="/xhjBMS/security/images/logo-collapsed@2x.png" width="40" alt="" /> </a> </div>
+        <div class="mobile-menu-toggle visible-xs"> <a href="#" data-toggle="user-info-menu"> <i class="fa-bell-o"></i> <span class="badge badge-success">7</span> </a> <a href="#" data-toggle="mobile-menu"> <i class="fa-bars"></i> </a> </div>
+      </header>
+      <ul id="main-menu" class="main-menu" >
+        <li class="active"> <a href="/admin/version/versionList?sysType=1456"> <i class="el-home"></i>  <span class="title">首页 </span> </a></li>
+      </ul>
+      <input type="hidden" id="feedbackbtn" value="">
+      <input type="hidden" id="msapbtn" value="">
+      <input type="hidden" id="msfkbtn" value="">
+    </div>
+  </div>
+  <script>
+  var cdmap = new Map();
+  var _userName=getCookie("username");
+  var _departmentid=getCookie("deptId");
+  var _titleId=getCookie("titleId");
+  var _btnKey = 'HR_BUTTON_'+_userName+"_"+_departmentid+"_"+_titleId;
+  $(function(){
+	  cdmap.set('组织信息管理', "linecons-database");
+	  cdmap.set('人事信息管理', "el-adult");
+	  cdmap.set('协同办公管理', "linecons-star");
+	  cdmap.set('报表管理', "linecons-database");
+	  cdmap.set('系统管理', "linecons-beaker");
+	  cdmap.set('版本详情', "linecons-beaker");
+	  cdmap.set('招聘管理', "linecons-beaker");
+	  muijs();
+	  queryButtonList();
+  })
+  
+  function queryTreeMenu(cb){
+	  var userName=getCookie("username");
+	  var departmentid=getCookie("deptId");
+	  var titleId=getCookie("titleId");
+	  if(_getItem('HR_MENU_'+userName+"_"+departmentid+"_"+titleId)){
+		  var arr = new Array();
+		  arr = _getItem('HR_MENU_'+userName+"_"+departmentid+"_"+titleId);
+		  var htm = renderTree(arr);
+		  $("#main-menu").append($(htm).html());
+		  typeof cb === 'function' && cb.call();
+	  }else{
+	 	  var url ='/login/getUserChannels/'+userName+'/BMS/'+departmentid+'/'+titleId;
+		  $.ajax({ 
+				url :url, 
+				dataType : "json", 
+				type : "get",
+				contentType : "application/json;charset=utf-8",
+				success : function(result){
+					if(200 == result.status){
+						if(JSON.parse(result.obj).length>0){
+							_setItem('HR_MENU_'+userName+"_"+departmentid+"_"+titleId,JSON.parse(result.obj)[0].treeNodes,1800);
+							var htm = renderTree(JSON.parse(result.obj)[0].treeNodes);
+							$("#main-menu").append($(htm).html());
+							typeof cb === 'function' && cb.call();
+						}
+						
+					}	
+				}
+		 });
+	  }	  
+  }
+  
+  //查询按钮菜单
+  function queryButtonList(){
+	  var userName=getCookie("username");
+	  var departmentid=getCookie("deptId");
+	  var titleId=getCookie("titleId");
+	  if(_getItem('HR_BUTTON_'+userName+"_"+departmentid+"_"+titleId)){
+		  var arr = new Array();
+		  arr = _getItem('HR_BUTTON_'+userName+"_"+departmentid+"_"+titleId);
+		  showButton(arr);
+	  }else{
+		  var url = '/login/getUserButtons/'+userName+'/BMS/'+departmentid+'/'+titleId;
+		  $.ajax({ 
+				url :url, 
+				dataType : "json", 
+				type : "get",
+				contentType : "application/json;charset=utf-8",
+				success : function(result){
+					if(200 == result.status){
+						if(result.obj.length>0){
+							_setItem('HR_BUTTON_'+userName+"_"+departmentid+"_"+titleId,result.obj,1800);
+							showButton(result.obj);
+						}
+					}	
+			   }
+		 });
+	  }
+  }
+  
+  //显示有权限的按钮
+  function showButton(list){
+	  if(list!= null && list != '' && list.length > 0){
+		  for(var i=0;i<list.length;i++){
+			  $('.'+list[i].keyWord).show();
+		  }
+	  }
+  }
+
+  
+  function renderTree(tree){
+	  var stack = [];
+	  	  
+	  function visitNode(node, deep){
+		  var n,url;
+		  stack.push('<ul>');
+		  for(var i=0;i<node.length;i++){
+			  n = node[i];
+			  if(n){
+				  stack.push('<li data-key="'+n.channel.channelId+'">');
+				  url = n.channel.url+'?id='+n.channel.channelId;
+				  if(deep==0){
+					  stack.push('<a href="'+n.channel.url+'"><i class="'+cdmap.get(n.channel.name)+'"></i><span class="title">'+n.channel.name+'</span></a>');
+				  }else{
+					  if(n.channel.name=='密码管理'){
+					 	 stack.push('<a href="'+url+'" data-toggle="modal" data-target="#Mima"> <span class="title">'+n.channel.name+'</span></a>');
+					  }else{
+					  	stack.push('<a href="'+url+'"><span class="title">'+n.channel.name+'</span></a>');
+					  }
+				  }
+				  if(n.treeNodes && n.treeNodes.length){
+					  visitNode(n.treeNodes, deep+1);
+				  }
+				  stack.push('</li>');
+			  }
+		  }
+		  stack.push('</ul>');
+	  }
+	  visitNode(tree, 0);
+	  return stack.join('');
+  }
+  
+ function muijs(){
+	 var url = location.href.toString(), id, m;
+	  	m = url.match(/\?id=(\d+)/);
+	  	id = m && m[1] || "";
+	 	queryTreeMenu(function(){
+	 		var scripts = [
+		    "/xhjBMS/security/js/TweenMax.min.js",
+		    "/xhjBMS/security/js/resizeable.js",
+		    "/xhjBMS/security/js/xenon-custom.js"];
+	 		var oHead = document.getElementsByTagName('HEAD').item(0);
+	 		scripts.map(function(v){
+			    var oScript= document.createElement("script");
+			    oScript.type = "text/javascript";
+			    oScript.src = v;
+			    oHead.appendChild(oScript);
+			    oScript = null;
+	 		});
+	 		oHead = null;
+	 		var cNode = $('#main-menu li[data-key="'+id+'"]');
+	 		var cpNode = cNode && cNode.length && cNode.parents('li') || null;
+	 		if(cpNode && cpNode.length){
+	 			cpNode.addClass('expanded');
+	 			cpNode.find('>ul').show();
+	 			cNode.addClass("active");
+	 		}
+	 	});		
+	} 
+ 
+ 
+ //set缓存
+ function _setItem(key, value, expire){//expire为过期时间
+	 var cache = {"v": value, "t": +new Date, "e": typeof expire == 'undefined' ? "" : expire};
+     localStorage.setItem(key,JSON.stringify(cache));
+ }
+ 
+//get缓存
+ function _getItem(key) {
+     var o = JSON.parse(localStorage.getItem(key));
+     var v = o && o.v;
+     var e = o && o.e;
+     if (e === 0 || (e && (new Date() - o.t) >= e * 1000)) {//过期返回空
+         return "";
+     }else{
+    	 return v;
+     }
+ }
+ 
+ function isExistBtn(keyword){
+	 var keylist = _getItem(_btnKey);
+	 if(keylist!= null && keylist != '' && keylist.length > 0){
+		  for(var i=0;i<keylist.length;i++){
+			  if(keylist[i].keyWord == keyword){
+				  return true;
+			  }
+		  }
+	  }
+	 return false;
+ }
+  </script>

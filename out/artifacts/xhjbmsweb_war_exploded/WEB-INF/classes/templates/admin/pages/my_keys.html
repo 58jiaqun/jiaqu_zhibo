@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的钥匙</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="page-container">
+    <div class="main-content">
+        <!--<h2 class="little">
+            表格
+        </h2>-->
+        <div class="row pr">
+            <div class="page-wrapper-cont">
+                <div class="switch_tab">
+                    <ul class="fl">
+                        <li class="active">
+                            我的钥匙
+                        </li>
+                    </ul>
+
+
+                </div>
+
+                <div class="row youxiao">
+                    <div class="col-xs-2"  id="keys">
+                    </div>
+
+                    <!--<div class="fr house_num">共<span>16107</span>条</div>-->
+                </div>
+                <div id="tblContent">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<%include("/admin/include/dialogTbl.html"){}%>
+</body>
+<script>
+    require(['bms_myKey']);
+</script>
+</html>

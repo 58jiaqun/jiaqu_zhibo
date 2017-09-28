@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的关注</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="page-container">
+    <div class="main-content">
+        <!--<h2 class="little">
+            表格
+        </h2>-->
+        <div class="row pr">
+            <div class="page-wrapper-cont">
+                <div class="switch_tab">
+                    <ul class="fl">
+                        <li class="active">
+                            我的关注
+                        </li>
+                    </ul>
+                    <div class="fr house_num">共<span id="recordCount"></span>条房源</div>
+                    <div class="fr sort_num">默认排序<span class="iconfont icon-0030-copy"></span></div>
+                </div>
+                <div id="tblContent">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<%include("/admin/include/dialogTbl.html"){}%>
+<script>
+     require(['house_public_list','bms_house_operation'], function (list, operation) {
+        operation.transfer.on('data.change', function () {
+            list.fetchData();
+        });
+    });
+</script>
+</html>

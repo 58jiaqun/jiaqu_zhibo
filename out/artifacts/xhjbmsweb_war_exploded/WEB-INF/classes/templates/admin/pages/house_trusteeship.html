@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="table-seach-box">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-label width100 txt_right fl">托进合同编号:</div>
+                    <div class="from_input" id="audit_state"> </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">状态:</div>
+                    <div class="from_input" id="contract_state"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">面积:</div>
+                    <div class="from_input distable house_input_box" id="house_area"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">房源编号:</div>
+                    <div class="from_input" id="house_no"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl">价格:</div>
+                    <div class="from_input" id="store"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-label width100 txt_right fl"></div>
+                    <div class="from_input" id="time_type"></div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="input-label width100 txt_right fl"></div>
+                    <div class="from_input distable house_input_box" id="time"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn btn-secondary" id="search">搜索</button>
+                    <button class="Pro-btn btn-warning">重置</button>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper-cont">
+            <div class="switch_tab">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    require(['bms_contractList']);
+</script>

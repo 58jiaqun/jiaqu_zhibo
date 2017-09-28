@@ -1,0 +1,25 @@
+/**
+ *
+ * Apply your custom CSS here
+ *
+*/
+
+.plr{ padding: 0 10px;}
+.w60{ width: 60px; text-align: center;}
+.w200{ width:200px;}
+.w150{ width:150px;}
+.w120{ width:120px;}
+.w100{ width:100px;}
+.w80{ width:80px;}
+.w300{ width:300px;}
+.ml10{ margin-left: 10px;}
+
+.mr10{ padding: 0 10px;}
+
+.dataTables_filter, .pagination{ float:right;}
+
+
+
+.border-left{ border-left: 0px;}
+.table .mag-l{ margin-left: 0;}
+.input-group .selectboxit-list.ps-container { overflow: hidden; margin-top: 32px;}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>独家限时代卖</title>
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="page-wrapper tion-house special_padd">
+    <div class="page-wrapper-hread">
+        独家限时代卖
+    </div>
+    <div class="table-seach-box">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">城市:</div>
+                <div class="from_input">
+                    <div class="ptf_seaSelectM">
+                        <div class="ptf_haveSelM">
+                            <span>请选择</span>
+                            <em></em>
+                        </div>
+                        <div class="ptf_priceSel">
+                            <ul>
+                                <li>滨海区</li>
+                                <li>北塘区</li>
+                                <li>南长区</li>
+                                <li>锡山区</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">房源编号:</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">副总区域:</div>
+                <div class="from_input">
+                    <div class="ptf_seaSelectM">
+                        <div class="ptf_haveSelM">
+                            <span>请选择无效原因</span>
+                            <em></em>
+                        </div>
+                        <div class="ptf_priceSel">
+                            <ul>
+                                <li>滨海区</li>
+                                <li>北塘区</li>
+                                <li>南长区</li>
+                                <li>锡山区</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">签订店组:</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">签订人员:</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" placeholder="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">状态:</div>
+                <div class="from_input">
+                    <div class="ptf_seaSelectM">
+                        <div class="ptf_haveSelM">
+                            <span>请选择</span>
+                            <em></em>
+                        </div>
+                        <div class="ptf_priceSel">
+                            <ul>
+                                <li>滨海区</li>
+                                <li>北塘区</li>
+                                <li>南长区</li>
+                                <li>锡山区</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">开始时间:</div>
+                <div class="from_input distable house_input_box">
+                    <input type="text" class="input-box distable-cell pholder_color_cc" placeholder="">
+                    <span class="distable-cell bar_icon">-</span>
+                    <input type="text" class="input-box distable-cell pholder_color_cc" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="input-label width100 txt_right fl">到期时间:</div>
+                <div class="from_input distable house_input_box">
+                    <input type="text" class="input-box distable-cell pholder_color_cc" placeholder="">
+                    <span class="distable-cell bar_icon">-</span>
+                    <input type="text" class="input-box distable-cell pholder_color_cc" placeholder="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <button class="btn btn-secondary">搜索</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="page-wrapper-cont">
+        <!--<div class="panel-heading">
+            <div class="col-lg-12">
+                房源审核列表
+            </div>
+            <div style="clear:both"></div>
+        </div>-->
+
+        <!--表格-->
+        <table class="ui-check-table">
+            <thead>
+            <tr>
+                <td>审核状态</td>
+                <td>房源编号</td>
+                <td>房屋价格(万元)</td>
+                <td>副总区</td>
+                <td>限时代卖部门</td>
+                <td>限时代卖人</td>
+                <td>录入时间</td>
+                <td>协议开始时间</td>
+                <td>协议到期时间</td>
+                <td>审核人</td>
+                <td>审核时间</td>
+                <td>原件/复印件</td>
+                <td>续签</td>
+                <td>语音</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+            <tr>
+                <td>未审核</td>
+                <td><a href='###'>HR12345678</a></td>
+                <td>133.00</td>
+                <td>雨花城南区（刘正）</td>
+                <td>新环境时代阳光店E组</td>
+                <td>邓磊</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td>2017-02-20</td>
+                <td></td>
+                <td></td>
+                <td>复印件</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="###">查看</a>
+                    <a href="###">无效</a>
+                    <a href="###">预审核</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <!--分页-->
+        <div class="pager" data-pager="1001">
+            <a href="javascript:;" class="pager-btn" data-p="1">首页</a>
+            <a href="javascript:;" class="pager-item" data-p="1">1</a>
+            <a href="javascript:;" class="pager-item active" data-p="2">2</a>
+            <a href="javascript:;" class="pager-item" data-p="3">3</a>
+            <a href="javascript:;" class="pager-item" data-p="4">4</a>
+            <a href="javascript:;" class="pager-item" data-p="5">5</a>
+            <a href="javascript:;" class="pager-item" data-p="6">6</a>
+            <a href="javascript:;" class="pager-btn" title="20" data-p="20">尾页</a>
+            <a href="javascript:;">转到</a><input type="text" class="pager-input" value="2">
+            <a href="javascript:;" class="pager-goto-btn pager-btn pager-goto">跳转</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

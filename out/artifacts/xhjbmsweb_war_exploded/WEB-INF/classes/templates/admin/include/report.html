@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>report</title>
+<script type="text/javascript" src="/xhjBMS/security/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	function submit(){
+		document.getElementById('exportForm').submit();
+	}
+	$(function(){
+		var url = location.search; //获取url中"?"符后的字串
+		if(url){
+			GetRequest(decodeURIComponent(url));
+		}
+		
+	});
+
+	function GetRequest(url) {
+ 		/* var theRequest = new Object(); */
+ 		var html='';
+ 		if (url.indexOf("?") != -1) {
+  			var str = url.substr(1);
+  			strs = str.split("&");
+  			for(var i = 0; i < strs.length; i ++) {
+   			/* theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]); */
+	   			if(strs[i].split("=")[0]==='url'){
+	   				$("#exportForm").attr("action",strs[i].split("=")[1]);
+	   			}else{
+	   				html += '<input type="hidden" name="'+strs[i].split("=")[0]+'"]"  value="'+strs[i].split("=")[1]+'" />'; 
+	   			}
+  			}
+  			$("#exportPageparam").html(html);
+  			submit();
+	 	}
+ 		
+ 		/* return theRequest; */
+	}
+	
+</script>
+</head>
+<body>
+	 <form id="exportForm" action="" method="post" >
+	 	<div id="exportPageparam"></div>
+		<!-- <input type="hidden" name="dataentryTime" id="dataentryTime_exl" value="">
+		<input type="hidden" name="formalcreatedate" id="formalcreatedate_exl" value="">
+        <input type="hidden" name="applicationleavetime" id="applicationleavetime_exl" value="">
+        <input type="hidden" name="actualDate" id="actualDate_exl" value="">
+        <input type="hidden" name="checkDate" id="checkDate_exl" value="">
+        <input type="hidden" name="formalCheckDate" id="formalCheckDate_exl" value="">
+        <input type="hidden" name="hrleavecheckdate" id="hrleavecheckdate_exl" value="">
+        <input type="hidden" name="hrleavedate" id="hrleavedate_exl" value="">
+        <input type="hidden" name="eformal" id="eformal_exl" value="">
+        <input type="hidden" name="titleSelect" id="titleSelect_exl" value="">
+        <input type="hidden" name="levelSelect" id="levelSelect_exl" value="">
+        <input type="hidden" name="dptid" id="dptid_exl" value="">
+		<input type="hidden" name="fullname" id="fullname_exl" value="">
+		<input type="hidden" name="username" id="username_exl" value="">
+  		<input type="hidden" name="departmentName" id="departmentName_exl" value="">
+   		<input type="hidden" name="tel" id="tel_exl" value="">
+     	<input type="hidden" name="source" id="source_exl" value="">
+     	<input type="hidden" name="diaopeiDate" id="diaopeiDate_exl" value="">
+      	<input type="hidden" name="diaopeiCheckDate" id="diaopeiCheckDate_exl" value="">
+        <input type="hidden" name="diaopeiValiddate" id="diaopeiValiddate_exl" value=""> -->
+    </form>
+</body>
+
+</html>

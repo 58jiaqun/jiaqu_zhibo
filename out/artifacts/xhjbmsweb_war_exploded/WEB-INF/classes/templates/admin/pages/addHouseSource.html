@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>录入/修改房源(售)</title>
+    <%include("/admin/include/cssjs.html"){}%>
+    <style type="text/css">
+			.othercss1,.othercss2,.othercss3,.othercss4,.othercss5{
+				display: none;
+			}
+			.fankan_list_boxnew .col-md-1 .input-label {
+				line-height: 98px;
+				text-align: right;
+			}
+			.fankan_list_boxnew .col-md-11 .panel-body {
+				padding: 0 15px 15px 15px;
+			}
+
+
+
+    </style>
+</head>
+<body class="backgroundf6">
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="page-wrapper-hread">
+            基本信息 <span class="font14" style="margin-left: 10px; line-height:19px; float: right; padding-right: 20px;">资料完善度为：<span
+                id="percentage" style="color:green;">0%</span><span class="red">（注意:信息完善 >=80% 是获取归属的5%分成必要条件之一）</span></span>
+        </div>
+        <div class="page-wrapper-cont margin-bottom10">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋名称:</div>
+                    <div class="from_input fl width170 count_jb" id="lpId"></div>
+                    <div class="from_input fl width170 count_jb" id="buildingId"></div>
+                    <div class="from_input fl width170 count_jb" id="unitId"></div>
+                    <div class="from_input fl width170" id="floorId"></div>
+                    <div class="from_input fl width170 count_jb" id="HouseNumberID"></div>
+                    <button class="dress_btn fl dizhishenqing">地址申请</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>所在城市:</div>
+                    <div class="from_input count_jb">
+                        <input type="text" readonly="readonly" class="input-box pholder_color_cc ui-disabled"
+                               id="cityId">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>所在城区:</div>
+                    <div class="from_input count_jb">
+                        <input type="text" class="input-box pholder_color_cc ui-disabled" readonly="readonly"
+                               id="stressId">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>所在商圈:</div>
+                    <div class="from_input count_jb">
+                        <input type="text" class="input-box pholder_color_cc ui-disabled" readonly="readonly" id="sqId">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋总价:</div>
+                    <div class="from_input count_jb">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="totalPrice">
+                        <span class="input_txt_rt">万元</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>产权面积:</div>
+                    <div class="from_input count_jb">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="buildingSize">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋楼层:</div>
+                    <div class="from_input">
+                        <div class="input_cont">
+                            <div class="selput_box">
+                                <input type="text" class="input_num ui-disabled" isNumber="true" id="floorText"
+                                       placeholder="层" readonly="readonly">
+                            </div>
+                            <span class="input_next">/</span>
+                            <div class="selput_box count_jb">
+                                <input type="text" class="input_num" id="totalFloor" isNumber="true" placeholder="总">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋用途:</div>
+                    <div class="from_input count_jb" id="useage"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋朝向:</div>
+                    <div class="from_input count_jb" id="orientationId"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>建筑年代:</div>
+                    <div class="from_input count_jb" id="buildingAgeId"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>委托类型:</div>
+                    <div class="from_input count_jb" id="delegateType"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>建筑类型:</div>
+                    <div class="from_input count_jb" id="buildingtype"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>装修标准:</div>
+                    <div class="from_input count_jb" id="decorationStandard"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 hxHtml dis">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋户型:</div>
+                    <div class="from_input">
+                        <div class="input_cont">
+                            <div class="selput_box count_zz">
+                                <input type="text" class="input_num fl" id="roomNumber" isNumber="true" placeholder="室">
+                            </div>
+                            <span class="input_next">-</span>
+                            <div class="selput_box count_zz">
+                                <input type="text" class="input_num fl" id="hallNumber" isNumber="true" placeholder="厅">
+                            </div>
+                            <span class="input_next">-</span>
+                            <div class="selput_box count_zz">
+                                <input type="text" class="input_num fl" id="kitchenNumber" isNumber="true"
+                                       placeholder="厨">
+                            </div>
+                            <span class="input_next">-</span>
+                            <div class="selput_box count_zz">
+                                <input type="text" class="input_num fl" id="toiletNumber" isNumber="true"
+                                       placeholder="卫">
+                            </div>
+                            <span class="input_next">-</span>
+                            <div class="selput_box count_zz">
+                                <input type="text" class="input_num fl" id="balconyNumber" isNumber="true"
+                                       placeholder="阳台">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>委托来源:</div>
+                    <div class="input_cont">
+                        <div class="from_input fl count_jb" style="width:50%; padding-left: 0;"
+                             id="delegateSourceParentID"></div>
+                        <div class="from_input fl count_jb" style="width:50%; padding-left: 10px;"
+                             id="delegateSourceId"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>业主姓名:</div>
+                    <div class="from_input name_list padding-right00">
+                        <div class="input_cont count_jb" id="gender"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row spHtml dis">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>商铺地段:</div>
+                    <div class="from_input count_sp" id="shopLot"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>商铺位置:</div>
+                    <div class="from_input count_sp" id="shopAddress"></div>
+                </div>
+            </div>
+            <div class="row spHtml dis">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>商铺纵宽:</div>
+                    <div class="from_input count_sp">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="innerDepth">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>商铺门宽:</div>
+                    <div class="from_input count_sp">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="shopWidth">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row xzlHtml dis">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>写字楼实率:</div>
+                    <div class="from_input count_xzl">
+                        <input type="text" class="input-box pholder_color_cc" isNumber="true" id="realRate">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>写字楼级别:</div>
+                    <div class="from_input count_xzl" id="olevel"></div>
+                </div>
+            </div>
+            <div class="row bsHtml dis">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>花园面积:</div>
+                    <div class="from_input count_bs">
+                        <input type="text" class="input-box pholder_color_cc" isNumber="true" id="hasGarden">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>占地面积:</div>
+                    <div class="from_input count_bs">
+                        <input type="text" class="input-box pholder_color_cc" isNumber="true" id="bs_buildingSize">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>地下室面积:</div>
+                    <div class="from_input count_bs">
+                        <input type="text" class="input-box pholder_color_cc" isNumber="true" id="hasBasement">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row bsHtml dis">-->
+            <!--<div class="col-md-4 bsHtml">-->
+            <!--<div class="input-label width100 txt_right fl"><span class="red">*</span>别墅类型:</div>-->
+            <!--<div class="from_input" id="bs_buildingtype"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>联系电话:</div>
+                    <div class="from_input ipone_list count_jb" id="repeatRelation">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>盘源类型:</div>
+                    <div class="form-table isEncryption font24 count_jb">
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="guishumendian">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>归属门店:</div>
+                    <div class="from_input count_b" id="departmentId"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>归属人:</div>
+                    <div class="from_input count_b" id="belongerId"></div>
+                </div>
+                <button class="dress_btn tuijianzhuanjia">推荐专家</button>
+            </div>
+        </div>
+        <div class="page-wrapper-hread dis xianshipan">
+            独家限时代卖委托录入
+        </div>
+        <div class="page-wrapper-cont margin-bottom10 dis xianshipan">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label new_width_box width100 txt_right fl"><span class="red">*</span>委托编号:</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc" id="contractNo" placeholder="委托编号">
+                    </div>
+                    <button class="dress_btn tianchong">填充</button>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>委托类型:</div>
+                    <div class="from_input count_xs" id="gs_delegateType"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">楼盘名称:</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc ui-disabled" id="lpName"
+                               readonly="readonly">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>协议开始时间:</div>
+                    <div class="from_input count_xs" id="beginDate">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>协议到期时间:</div>
+                    <div class="from_input count_xs" id="endDate">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>协议签订时间:</div>
+                    <div class="from_input count_xs" id="signDate">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">限时代卖部门</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc ui-disabled" readonly="readonly"
+                               id="exclusivePersonBmId" placeholder="限时代卖部门">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">限时代卖人</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc ui-disabled" readonly="readonly"
+                               id="exclusivePersonId" placeholder="限时代卖人">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>限时人电话</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc" id="phone" placeholder="限时代卖人电话">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>委托面积:</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="delegateSize"
+                               placeholder="委托面积">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>委托价格:</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="delegatePrice"
+                               placeholder="委托价格">
+                        <span class="input_txt_rt">万</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>保证金金额:</div>
+                    <div class="from_input count_xs">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="ensurePrice"
+                               placeholder="保证金金额">
+                        <span class="input_txt_rt">元</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body new_panel_padd etype count_xs"></div>
+            <div class="row">
+                <div class="col-md-8">
+                </div>
+            </div>
+            <div class="panel marginlr">
+                <div class="panel-heading">
+                    <span class="red">*</span>限时委托代理销售协议<span class="red">(请上传原件)</span>
+                    <div style="clear:both"></div>
+                </div>
+                <div class="page-wrapper-cont paddingnone margin-bottom10">
+                    <div class="row count_xs" id="uploadxy">
+                    </div>
+                </div>
+            </div>
+            <div class="panel marginlr">
+                <div class="panel-heading">
+                    <div class="fl">
+                        <span class="red">*</span>附件<span class="red">(请务必上传身份证,产权证或者国土证)</span>
+                    </div>
+                    <div class="selput_box map_selrd fl isCopy">
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+                <div class="page-wrapper-cont paddingnone margin-bottom10">
+                    <div class="row count_xs" id="uploadfj">
+                    </div>
+                </div>
+            </div>
+            <div class="panel marginlr">
+                <div class="panel-heading">
+                    备注
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body count_xs">
+                    <textarea class="txtrea add_txtrea" id="comments"></textarea>
+                </div>
+            </div>
+            <div class="rule_txt marginlr red">
+                <p>《限时委托》必须遵循以下规则：</p>
+                <p>1、签订《限时委托代理销售协议》及上传《限时委托代理销售协议》(原件)及附件到系统。</p>
+                <p>附件：（1）产权人身份证;</p>
+                <p style="padding-left:35px;">（2）产权证或者是国土证（没有下产权的：购房合同和贷款合同）;</p>
+                <p>2、限时委托代理销售协议签订时间和到期时间都要完整添加，不然系统会自动下架。</p>
+                <p>3、如果限时委托代理销售协议是委托人签字，必须要提供资料证明产权人和委托人的双方关系。</p>
+                <p> 长沙产品管控部温馨提示：产品管控部座机83869185　83871396 请家人及时跟进限时审核进度，限时如有疑问请致电。</p>
+            </div>
+        </div>
+        <div class="page-wrapper-hread dis xianshipan">
+            房堪信息
+        </div>
+        <div class="page-wrapper-cont margin-bottom10 fankan_list_box dis xianshipan">
+            <div class="col-md-1">
+                <div class="input-label width100 text_left  fl count_fk"><span class="red">*</span>户型图:</div>
+            </div>
+            <div class="col-md-11" id="uploadhx">
+
+            </div>
+            <div class="col-md-1">
+                <div class="input-label width100 text_left  fl count_fk"><span class="red">*</span>室内图:</div>
+            </div>
+            <div class="col-md-11" id="uploadsn">
+            </div>
+            <div class="col-md-1">
+                <div class="input-label width100 text_left fl count_fk"><span class="red">*</span>室外图:</div>
+            </div>
+            <div class="col-md-11" id="uploadzjzl">
+            </div>
+            <div class="rule_txt marginlr red">
+             <p  class="font12"><span class="red">提示：</span>上传图片大小要求格式：1MB，且如果上传图片过程中出现断点提示，是由于图片较大，请减少一次上传数量</p>
+            </div>
+        </div>
+        <div class="page-wrapper-hread bpan">
+            委托书
+        </div>
+        <div class="page-wrapper-cont margin-bottom10 bpan fankan_list_boxnew">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-label width100 txt_right fl">业主电话:</div>
+                    <div class="from_input rifi_code fl" style="padding-left: 10px;">
+                        <input type="text" class="input-box pholder_color_cc  ui-disabled" readonly="readonly"
+                               id="mobilePhone" placeholder="请输入业主电话">
+                    </div>
+                    <button class="Pro-btn btn-success huoquyanzhengma" style="margin-left: 10px">获取验证码</button>
+                    <span class="red font14" style="margin-left: 10px; line-height:30px;">(系统查询到该联系方式下有<span
+                            id="hscount">0</span>套房源)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="input-label width100 txt_right fl">验证码:</div>
+                    <div class="from_input fl" style="padding-left: 10px;">
+                        <input type="text" class="input-box pholder_color_cc" id="checkcode" isNumber="true"
+                               placeholder="请输入验证码">
+                    </div>
+                    <span class="red font14 fl" style="margin-left: 10px; line-height:30px;">(请找业主获取验证码,30分钟内有效 验证码1天最多获取次数有限额)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="input-label width100 text_left  fl count_fk">委托书:</div>
+                </div>
+                <div class="col-md-11" id="uploadwts">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="input-label width100 text_left  fl count_fk">身份证:</div>
+                </div>
+                <div class="col-md-11" id="uploadsfz">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="input-label width100 text_left fl count_fk">产权证:</div>
+                </div>
+                <div class="col-md-11" id="uploadcqz">
+                </div>
+            </div>
+            <div class="row red">
+                <div class="col-md-12 font12 rule_txt">
+                    <p>根据国家住建委的要求，房源委托必须提供必要证明资料，否则存在法律风险，且根据三级市场制度委托资料的完整性会直接影响角色人分成，请尽快补齐。</p>
+                    <p>1. 录入委托书验证码分成2％；</p>
+                    <p>2. 上传纸质委托书图片分成1％；</p>
+                    <p>3. 上传产权人身份证复印件分成1％；</p>
+                    <p>4. 上传产权证复印件分成1％；</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper-hread dis guishuxinxi">
+            归属信息
+        </div>
+        <div class="page-wrapper-cont margin-bottom10 dis guishuxinxi">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>使用面积:</div>
+                    <div class="from_input count_gs">
+                        <input type="text" class="input-box pholder_color_cc" isFloat="true" id="innerSize">
+                        <span class="input_txt_rt">㎡</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>产权年限:</div>
+                    <div class="from_input count_gs" id="propertyAge"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>房屋现状:</div>
+                    <div class="from_input count_gs" id="houseStatus"></div>
+                </div>
+                <!--<div class="col-md-4">-->
+                <!--<div class="input-label width100 txt_right fl"><span class="red">*</span>产权情况:</div>-->
+                <!--<div class="from_input"></div>-->
+                <!--</div>-->
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>可看房时间:</div>
+                    <div class="from_input count_gs" id="showingTime"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>满五年:</div>
+                    <div class="from_input count_gs" id="isHaving"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>业主付佣:</div>
+                    <div class="from_input count_gs" id="ownerPaymentType"></div>
+                </div>
+            </div>
+            <div class="row peitaosheshi">
+                <div class="col-md-12">
+                    <div class="input-label width100 txt_right fl"><span class="red">*</span>配套设施:</div>
+                    <div class="form-table font14 selput_box facilities count_gs">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper-hread dis qitaxinxi">
+            其他信息
+        </div>
+        <div class="page-wrapper-cont margin-bottom10 dis qitaxinxi">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">权属性质:</div>
+                    <div class="from_input count_qt" id="propertyInfo"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">国土性质:</div>
+                    <div class="from_input count_qt" id="territoryInfo"></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">产权地址:</div>
+                    <div class="from_input count_qt">
+                        <input type="text" class="input-box pholder_color_cc" id="propertyAddress" placeholder="产权地址">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">可入住时间:</div>
+                    <div class="from_input count_qt" id="occupancyTime">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">委托期限:</div>
+                    <div class="from_input count_qt">
+                        <input type="text" class="input-box pholder_color_cc" id="delegateLimit">
+                        <span class="input_txt_rt">天</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">抵押:</div>
+                    <div class="from_input count_qt" id="isMortgage"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">委托日期:</div>
+                    <div class="from_input count_qt" id="delegateDate">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">格局是否改变:</div>
+                    <div class="form-table new_geju isChangedUnits count_qt">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-label width100 txt_right fl">出售原因:</div>
+                    <div class="from_input count_qt">
+                        <input type="text" class="input-box pholder_color_cc" id="saleReason" placeholder="出售原因">
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="col-lg-3">
+                        家电名称
+                    </div>
+                    <div class="col-lg-3">
+                        家电数量
+                    </div>
+                    <div class="col-lg-3">
+                        家电品牌
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body count_qt" id="repeatJD">
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="col-lg-3">
+                        家具名称
+                    </div>
+                    <div class="col-lg-3">
+                        家具数量
+                    </div>
+                    <div class="col-lg-3">
+                        家具品牌
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body count_qt" id="repeatJJ">
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">
+                    房屋描述（该描述将会在XHJ.com展示给客户,详细,真实客观的描述,能获得更多的客户电话）
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="nav_box">
+                        <ul>
+                            <li class="otherbtn" data-value="1">
+                                价格分析&nbsp;<span>+</span>
+                            </li>
+                            <li class="otherbtn" data-value="2">
+                                装修描述&nbsp;<span>+</span>
+                            </li>
+                            <li class="otherbtn" data-value="3">
+                                周边配套&nbsp;<span>+</span>
+                            </li>
+                            <li class="otherbtn" data-value="4">
+                                交通出行&nbsp;<span>+</span>
+                            </li>
+                            <li class="otherbtn" data-value="5">
+                                小区简介&nbsp;<span>+</span>
+                            </li>
+                        </ul>
+                        <p class="tishi_new add_ts_nes"><span>提示：</span> 可以点击添加，对房源进行更加详细的描述</p>
+                    </div>
+                    <div style="clear: both;"></div>
+                    <h4 class="tishi_bt add_ts_bt"><label><span style="color:red;">*</span>房源亮点</label> <span>（介绍本房源具有竞争力的卖点，例如：房本满两年、新装修、楼层好等）</span>
+                    </h4>
+                    <div style="clear: both;"></div>
+                    <div class="col-md-10 count_qt">
+                        <textarea class="fyld" style="height:150px;visibility:hidden;" id="housinglights"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;"></div>
+                    <h4 class="tishi_bt add_ts_bt"><label><span style="color:red;">*</span>户型介绍 </label><span>（介绍本房源的户型情况，例如：户型周正、采光好、有阳台、赠送面积等）</span>
+                    </h4>
+                    <div class="col-md-10 count_qt">
+                        <textarea class="hxjs" style="height:150px;visibility:hidden;" id="housingintroduce"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;"></div>
+                    <h4 class="tishi_bt othercss1"><label>价格分析 </label></h4>
+                    <div class="col-md-10 othercss1 count_qt">
+                        <textarea class="jgfx" style="height:150px;visibility:hidden;" id="priceanalysis"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;" class="othercss1"></div>
+                    <h4 class="tishi_bt othercss2"><label>装修描述 </label></h4>
+                    <div class="col-md-10 othercss2 count_qt">
+                        <textarea class="zxms" style="height:150px;visibility:hidden;" id="decorations"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;" class="othercss2"></div>
+                    <h4 class="tishi_bt othercss3"><label>周边配套 </label></h4>
+                    <div class="col-md-10 othercss3 count_qt">
+                        <textarea class="zbpt" style="height:150px;visibility:hidden;" id="matchings"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;" class="othercss3"></div>
+                    <h4 class="tishi_bt othercss4"><label>交通出行 </label></h4>
+                    <div class="col-md-10 othercss4 count_qt">
+                        <textarea class="jtcx" style="height:150px;visibility:hidden;" id="traffic"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;" class="othercss4"></div>
+                    <h4 class="tishi_bt othercss5"><label>小区简介</label></h4>
+                    <div class="col-md-10 othercss5 count_qt">
+                        <textarea class="xqjj" style="height:150px;visibility:hidden;" id="community"></textarea>
+                    </div>
+                    <div style="clear: both;padding-bottom: 10px;" class="othercss5"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="page-wrapper-footer txt_right">
+    <button class="btn btn-secondary" id="savebtn">保存</button>
+    <button class="btn btn-gray" onclick="window.history.go(-1)">取消</button>
+</div>
+<%include("/admin/include/dialogTbl.html"){}%>
+<script>
+            require(['bms_addHouseSource']);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1809 @@
+<!--跟进-->
+<script type="text/html" id="genjinTpl">
+    <div class="row  genjin_model">
+        <div class="col-xs-12">
+            <div class="input-label width100 txt_right  fl">跟进类型</div>
+            <div class="from_input">
+                <div class="ptf_seaSelectM" id="genjin_type">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="input-label width100 txt_right  fl">跟进内容</div>
+            <div class="from_input">
+                <textarea id="genJinContent" class="textarea" placeholder="请输入内容" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--聚焦-->
+<script type="text/html" id="jujiaoTpl">
+    <div class="row jujiao_model">
+        <form id="fromSubmit1">
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">类别：</div>
+                <div class="from_input">
+                    <div class="ptf_seaSelectM" id="focusStatus">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">录入时间:</div>
+                <div class="from_input distable house_input_box">
+                    <input type="text" name="focusTime" class="input-box distable-cell pholder_color_cc datetime" placeholder="">
+                    <span class="distable-cell bar_icon">-</span>
+                    <input type="text" name="focusEndTime" class="input-box distable-cell pholder_color_cc datetime" placeholder="">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">营销策略:</div>
+                <div class="from_input">
+                    <textarea name="focusReason" class="textarea" placeholder="" rows="3">本房源交通便利，性价比高，价低楼层好，小区环境不错，经典户型设计，合理空间划分，内外兼修，强烈推荐！</textarea>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">推荐人:</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled employeeName" value="" readonly>
+                    <input type="hidden" name="tuserId"  value="">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">推荐部门:</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled departmentName"  value="" readonly>
+                    <input type="hidden" name="tdeptId"  value="">
+                    <input type="hidden" name="tcityId" value="">
+                    <input type="hidden" name="focusId" value="">
+                </div>
+            </div>
+            <div class="col-xs-6" style="display:none">
+                <div class="input-label width100 txt_right fl">责任人:</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled personLiable"  value="" readonly>
+                </div>
+            </div>
+
+            <div class="col-xs-6" style="display:none">
+                <div class="input-label width100 txt_right fl">联盟范围:</div>
+                <div class="from_input" allianceFocus>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<!--无效-->
+<script type="text/html" id="wuxiaoTpl">
+    <div class="row wuxiao_model">
+        <form id="formSubmit2">
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right fl">选择类型</div>
+                <div id="radio" class="from_input">
+                    <div class="check_icon_box fl">
+                        <span class="iconfont icon-danxuanxuanzhong fl"></span><label class="fl" data-value="373">房源无效</label>
+                    </div>
+                    <div class="check_icon_box fl">
+                        <span class="iconfont icon-danxuanweixuanzhong fl"></span><label class="fl" data-value="376">独家限时无效</label>
+                    </div>
+                    <div class="check_icon_box fl">
+                        <span class="iconfont icon-danxuanweixuanzhong fl"></span><label class="fl" data-value="375">钥匙无效</label>
+                    </div>
+                    <div class="check_icon_box fl">
+                        <span class="iconfont icon-danxuanweixuanzhong fl"></span><label class="fl" data-value="374">房堪无效</label>
+                    </div>
+                    <div class="check_icon_box fl">
+                        <span class="iconfont icon-danxuanweixuanzhong fl"></span><label class="fl" data-value="1751">自清无效</label>
+                    </div>
+                    <div class="check_icon_box fl">
+                        <span class="iconfont icon-danxuanweixuanzhong fl"></span><label class="fl" data-value="1747">委托书无效</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">无效原因</div>
+                <div class="from_input">
+                    <div class="input_cont" id="wuxiao_type">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input_cont" id="wuxiao_reason">
+
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">无效备注:</div>
+                <div class="from_input">
+                    <textarea name="alternateReason" name="alternateReason" class="textarea" placeholder="请写明申报此问题的具体原因：是哪里出错了，下架是否告知，如果没有写明原因的会反驳不予处理、不予告知，请各伙伴们配合，谢谢" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">房源编号:</div>
+                <div class="from_input">
+                    <input type="text" name="houseNumber" class="input-box pholder_color_cc ui-disabled houseNumber" value="" readonly>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">申请部门:</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc ui-disabled departmentName"  value="" readonly>
+                    <input type="hidden" name="tdeptId" value="">
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="input-label width100 txt_right fl">申请人:</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled employeeName" value="" readonly>
+                    <input type="hidden" name="tuserId" value="">
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<!--客户编号-->
+<script type="text/html" id="bianhaoTpl">
+        <div class="row bianhao_model">
+            <div class="col-xs-5">
+                <div class="input-label width100 txt_right fl">店组：</div>
+                <div class="from_input">
+                    <div class="ptf_seaSelectM" id="bianhaodianzu">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="input-label width100 txt_right fl">经纪人：</div>
+                <div class="from_input">
+                    <div class="ptf_seaSelectM" id="bianhaoagent">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="input-label width100 txt_right fl">客户姓名：</div>
+                <div class="from_input">
+                    <input type="text" id="customerName" class="input-box pholder_color_cc " value="">
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="input-label width100 txt_right fl">联系方式：</div>
+                <div class="from_input">
+                    <input type="text" id="contactWay" class="input-box pholder_color_cc " value="" >
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <button class="btn input_btn" id="chaxun" style="padding: 0px 12px">查询</button>
+            </div>
+        </div>
+    <!--表格-->
+    <div class="col-xs-12" id="tblCustomerInfo" style="height: 250px;overflow: auto">
+        <table class="ui-check-table">
+            <thead>
+            <tr>
+                <td>客户编号</td>
+                <td>客户姓名</td>
+                <td>客户性别</td>
+                <td>归属店组</td>
+                <td>经纪人</td>
+            </tr>
+            </thead>
+            <tbody id="tblbianhao">
+            <tr>
+                <td>
+                    <input type="radio" name="rdoCustomerinfos" value="1431018">
+                    12345678
+                </td>
+                <td>某某某</td>
+                <td>男</td>
+                <td>测试-A组</td>
+                <td>某某某</td>
+            </tr>
+            <tr>
+                <td>12345678</td>
+                <td>某某某</td>
+                <td>男</td>
+                <td>测试-A组</td>
+                <td>某某某</td>
+            </tr>
+            <tr>
+                <td>12345678</td>
+                <td>某某某</td>
+                <td>男</td>
+                <td>测试-A组</td>
+                <td>某某某</td>
+            </tr>
+            <tr>
+                <td>12345678</td>
+                <td>某某某</td>
+                <td>男</td>
+                <td>测试-A组</td>
+                <td>某某某</td>
+            </tr>
+            <tr>
+                <td>12345678</td>
+                <td>某某某</td>
+                <td>男</td>
+                <td>测试-A组</td>
+                <td>某某某</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<!--空看-->
+<script type="text/html" id="kongkan">
+    <div class="row jujiao_model">
+        <form id="fromSubmit4">
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">房源编号</div>
+                <div class="from_input">
+                    <input type="text" name="number" class="input-box pholder_color_cc ui-disabled houseNumber" value="" readonly>
+                </div>
+            </div>
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">空看店组</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled departmentName"  value="" readonly>
+                    <input type="hidden" name="departmentId" value="">
+                </div>
+            </div>
+            <div class="col-xs-6 ">
+                <div class="input-label width100 txt_right fl">经纪人</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled employeeName" value="" readonly>
+                    <input type="hidden" name="employeeId" value="">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">空看反馈</div>
+                <div class="from_input">
+                    <textarea name="message" class="textarea" placeholder="" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<!--约看-->
+<script type="text/html" id="yuekan">
+    <div class="row jujiao_model">
+        <form id="formSubmit3">
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">房源编号</div>
+                <div class="from_input">
+                    <input type="text" name="number" class="input-box pholder_color_cc ui-disabled houseNumber" value="HS17030200746" readonly>
+                </div>
+            </div>
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">客户编号</div>
+                <div class="from_input">
+                    <input type="text" id="customerId" class="input-box pholder_color_cc"  value=""style="width: 70%;">
+                    <input type="hidden" name="customerId">
+                    <button id="xuanze" style="width:25%;padding: 5px 8px;border: 0px;">选择</button>
+                </div>
+            </div>
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">预约时间</div>
+                <div class="from_input">
+                    <input type="text" name="bookTime" class="input-box pholder_color_cc datetime" value=""  placeholder="选择日期：yyyy-MM-dd">
+                </div>
+            </div>
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">约看店组</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled departmentName" value="测试一店A组" readonly>
+                    <input type="hidden" name="departmentId" value="1386">
+                </div>
+            </div>
+            <div class="col-xs-6 ">
+                <div class="input-label width100 txt_right fl">经纪人</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled employeeName" value="测试-综合经纪人9004" readonly>
+                    <input type="hidden" name="employeeId" value="">
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">约看反馈</div>
+                <div class="from_input">
+                    <textarea name="message" class="textarea" placeholder="" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
+
+<!--委托书-->
+<script type="text/html" id="weituoshu">
+    <div class="row ui-back-model wts_dialog">
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">业主电话</div>
+            <div class="from_input rifi_code fl">
+                <input type="text" id="phonehidden" class="input-box pholder_color_cc ui-disabled" placeholder="请输入业主电话" readonly>
+            </div>
+            <button class="Pro-btn btn-success" id="getCode_weituoshu">获取验证码</button>
+        </div>
+        <div class="col-xs-12 ui-two">
+            <div class="input-label width100 txt_right fl">验证码</div>
+            <div class="from_input">
+                <input type="text" class="input-box pholder_color_cc" placeholder="请输入验证码" id="verificationCode">
+            </div>
+            <p class="red">(请找业主获取验证码,30分钟内有效)</p>
+        </div>
+        <div class="col-md-12">
+            <div class="input-label width100 text_left  fl count_fk">委托书:</div>
+        </div>
+        <div class="col-md-12" id="bl_uploadwts">
+        </div>
+        <div class="col-md-12">
+            <div class="input-label width100 text_left  fl count_fk">身份证:</div>
+        </div>
+        <div class="col-md-12" id="bl_uploadsfz">
+        </div>
+        <div class="col-md-12">
+            <div class="input-label width100 text_left fl count_fk">产权证:</div>
+        </div>
+        <div class="col-md-11" id="bl_uploadcqz">
+        </div>
+        <div class="row red">
+            <div class="col-md-12 font14 rule_txt">
+                <p>根据国家住建委的要求，房源委托必须提供必要证明资料，否则存在法律风险，且根据三级市场制度委托资料的完整性会直接影响角色人分成，请尽快补齐。</p>
+                <p>1. 录入委托书验证码分成2％；</p>
+                <p>2. 上传纸质委托书图片分成1％；</p>
+                <p>3. 上传产权人身份证复印件分成1％；</p>
+                <p>4. 上传产权证复印件分成1％；</p>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--钥匙-->
+<script type="text/html" id="yaoshi">
+    <form id="submitKey">
+    <div class="row hf_box">
+        <h3>登记详情</h3>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl ">房源编号</div>
+            <div class="from_input">
+                <input type="text" name="number" class="input-box pholder_color_cc key_bianhao ui-disabled" placeholder="" readonly>
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">协议编号</div>
+            <div class="from_input">
+                <input type="text" name="contractNo" class="input-box pholder_color_cc" placeholder="">
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">钥匙套数</div>
+            <div class="from_input rifi_code fl">
+                <input type="text" name="suitNumber" class="input-box pholder_color_cc" placeholder="请输入整数" isNumber="true">
+            </div>
+            <div class=" fl" id="key_modules">
+
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">钥匙把数</div>
+            <div class="from_input">
+                <input type="text" name="pieceNumber" class="input-box pholder_color_cc" placeholder="请输入整数" isNumber="true">
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl ">所属店面</div>
+            <div class="from_input">
+                <input type="text" name="DepartmentName" class="input-box pholder_color_cc dianmain ui-disabled" placeholder="" readonly>
+                <input type="hidden" name="belongerDepartmentId" value="">
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">所属人</div>
+            <div class="from_input">
+                <div class="ptf_seaSelectM" id="key_owner">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">签约时间</div>
+            <div class="from_input">
+                <input type="text" name="inputKeyDate" class="input-box pholder_color_cc datetime ui-disabled" placeholder="" readonly>
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">当前状态</div>
+            <div class="from_input">
+                <div class="ptf_seaSelectM" id="currentCode">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">钥匙箱号</div>
+            <div class="from_input">
+                <input type="text" name="keyBoxNumber" class="input-box pholder_color_cc" placeholder="请输入整数" isNumber="true">
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">业主电话</div>
+            <div class="from_input rifi_code_inphone fl">
+                <input type="text" class="input-box pholder_color_cc phonehidden ui-disabled" placeholder="请输入业主电话" readonly>
+            </div>
+            <button id="getCode_key" class="Pro-btn btn-success">获取验证码</button>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl">验证码</div>
+            <div class="from_input">
+                <input type="text" name="code" class="input-box pholder_color_cc" placeholder="请输入验证码">
+            </div>
+            <p class="red">(请找业主获取验证码,30分钟内有效 验证码1天最多获取次数有限额)</p>
+        </div>
+        <div class="col-xs-12 ui-one" >
+            <div class="input-label width150 txt_right fl">上传附件</div>
+            <div class="from_input" id="uploadfujian"></div>
+        </div>
+        <div class="col-xs-12 red">
+            <p>请按照正确流程操作：</p>
+            <p>1、首先电话与业主沟通（告之业主稍后将收到新环境官方平台"1069063410981"发过来的验证短信并把验证码发过来，短信格式为【新环境房屋网】您好。</p>
+            <p>您本次的钥匙验证码是：XXXX</p>
+            <p>然后再点击发送验证码按钮;</p>
+            <p>最后将验证码输入并提交</p>
+            <p>(切记一定要提前跟业主协商,协商好再发验证码,中途不要退出整个系统平台)</p>
+        </div>
+        <div class="col-xs-12 ui-two">
+            <div class="input-label txt_right fl">备注</div>
+            <textarea class="ui_tarea" name="comments"></textarea>
+        </div>
+    </div>
+    </form>
+</script>
+
+<!--房堪-->
+<script type="text/html" id="fangkan">
+    <div class="fankan_box" id="uploadfankan">
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    户型图
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body" >
+                    <div class="" id="upload_hx"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    室内图
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body" >
+                    <div class="" id="upload_sn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    室外图
+                    <div style="clear:both"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="" id="upload_zjzl"></div>
+                </div>
+            </div>
+        </div>
+        <div class="rule_txt marginlr red">
+            <p  class="font12"><span class="red">提示：</span>上传图片大小要求格式：1MB，且如果上传图片过程中出现断点提示，是由于图片较大，请减少一次上传数量</p>
+        </div>
+    </div>
+</script>
+
+<!--查看核心信息-->
+<script type="text/html" id="hexinxinxi">
+    <div class="ui-back-model hf_box">
+        <div class="row info_pop"id="houseDetail">
+            <h3>房源详情</h3>
+            <div class="col-xs-12 ui-one">
+                <div class="input-label width150 txt_right fl">房屋地址：</div>
+                <div class="from_input">
+                    <label class="from_label" id="houseSourceNumber"></label>
+                </div>
+            </div>
+            <div class="col-xs-12 ui-one">
+                <div class="input-label width150 txt_right fl">产权地址：</div>
+                <div class="from_input">
+                    <label class="from_label" id="owenAddress"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row info_pop" id="peopleInfo">
+            <h3>独家限时人信息</h3>
+            <div class="col-xs-6 ui-one">
+                <div class="input-label width150 txt_right fl">姓名：</div>
+                <div class="from_input">
+                    <label class="from_label" id="owenerName"></label>
+                </div>
+            </div>
+            <div class="col-xs-6 ui-one">
+                <div class="input-label width150 txt_right fl">性别：</div>
+                <div class="from_input">
+                    <label class="from_label" id="sex"></label>
+                </div>
+            </div>
+            <div class="col-xs-12 ui-one">
+                <div class="input-label width150 txt_right fl">联系电话：</div>
+                <div class="from_input">
+                    <label class="from_label" id="phoneNum"></label>
+                </div>
+            </div>
+        </div>
+        <div class="row info_pop"id="OwnerInfo">
+            <h3>业主信息</h3>
+            <div class="col-xs-6 ui-one">
+                <div class="input-label width150 txt_right fl">姓名：</div>
+                <div class="from_input">
+                    <label class="from_label" id="OwnerName"></label>
+                </div>
+            </div>
+            <div class="col-xs-6 ui-one">
+                <div class="input-label width150 txt_right fl">性别：</div>
+                <div class="from_input">
+                    <label class="from_label" id="OwnerSex"></label>
+                </div>
+            </div>
+            <div class="col-xs-12 ui-one">
+                <div class="input-label width150 txt_right fl">联系电话：</div>
+                <div class="from_input">
+                    <label class="from_label" id="OwnerPhone"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--操作日记-->
+<script type="text/html" id="caozuorijiTbl">
+<div id="caozuoriji"></div>
+</script>
+
+<!--房源点评-->
+<script type="text/html" id="fangyuandianping">
+    <div class="row  genjin_model">
+        <h4 style="padding:5px 0;font-weight:normal">发布评论</h4>
+        <div class="col-xs-12">
+            <div class="input-label width100 txt_right  fl">标题</div>
+            <div class="from_input">
+                <input type="text" class="input-box pholder_color_cc" id="title" placeholder="请输入标题">
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="input-label width100 txt_right  fl">评论</div>
+            <div class="from_input">
+                <textarea  class="textarea" placeholder="请输入评论" id="comment" rows="3"></textarea>
+            </div>
+        </div>
+            <p class="red" style="padding: 5px 0">上传图片：请上传300kb以内的图片，最多可上传一张</p>
+            <div class="col-md-12" id="uploadImg"></div>
+    </div>
+</script>
+
+<!--无效审核-->
+<script type="text/html" id="invalidTpl">
+    <div i="content" class="jujiao_model ui-dialog-content">
+    <div >
+        <div class="row label_line_model">
+            <div class="col-xs-4">
+                <div class="input-label width100 txt_right fl">举报类型</div>
+                <div class="from_input" id="invalid_type">
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-label width100 txt_right fl">举报原因</div>
+                <div class="from_input" id="invalid_disableReason">
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">业务类型</div>
+                <div class="from_input" id="invalid_houseType">
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">房源编号</div>
+                <div class="from_input" id="invalid_houseNumber">
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">申请人</div>
+                <div class="from_input" id="invalid_requester">
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">申请部门</div>
+                <div class="from_input" id="invalid_requestDepartmentId">
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">联系方式</div>
+                <div class="from_input" id="invalid_tel">
+                </div>
+            </div>
+            <div class="col-xs-8 ">
+                <div class="input-label width100 txt_right fl">申请时间</div>
+                <div class="from_input" id="invalid_requestSimpDate">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">举报备注</div>
+                <div class="from_input">
+                    <textarea  class="textarea" placeholder="" rows="3" id="invalid_alternateReason" disabled="disabled"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">审核备注</div>
+                <div class="from_input">
+                    <textarea  class="textarea" placeholder="" rows="3" id="invalid_applicantRemarks"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">部门</div>
+                <div class="from_input" id="invalid_auditDepartment"></div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">审核人</div>
+                <div class="from_input" id="invalid_reviewer">
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="input-label width100 txt_right fl">审核时间</div>
+                <div class="from_input" id="invalid_auditTime"></div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="input-label width100 txt_right fl">处理原因（多项选择）</div>
+            <div class="from_input model_check" id="invalid_rejectreason_checkbox">
+
+            </div>
+        </div>
+    </div>
+    <p class="red font14 model_bzhu" style="">注：查看无效历史审核记录<a href="###" style="color: #24b73b;" id="historicalAuditRecord">查看</a></p>
+        <div id="invalid_tblContent" class="dis"></div>
+    </div>
+</script>
+
+
+<!--房源审核-->
+<script type="text/html" id="houseCheckTpl">
+    <div i="content" class="jujiao_model ui-dialog-content">
+        <div class="col-xs-12 selt_box_two new_box_nav">
+            <div class="new_box_in" >
+                <div class="selt_fl fl active" data-type="1">房源申请审核</div>
+                <div class="selt_fr fr" data-type="2" >委托书</div>
+            </div>
+        </div>
+        <div class="Apply_box" id="houseCheck_Apply_box">
+            <div class="row label_line_model">
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">房源编号</div>
+                    <div class="from_input" id="houseNumber"> </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="input-label width100 txt_right fl">业务类型</div>
+                    <div class="from_input" id="check_houseType"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">申请人</div>
+                    <div class="from_input" id="applicant"> </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">申请部门</div>
+                    <div class="from_input" id="applicantDepartment"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">联系电话</div>
+                    <div class="from_input" id="tel">
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">申请时间</div>
+                    <div class="from_input" id="applicantTime"></div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="input-label width100 txt_right  fl">审核备注</div>
+                    <div class="from_input" >
+                        <textarea  class="textarea" placeholder=""  rows="3" id="applicantRemarks"></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">部门</div>
+                    <div class="from_input" id="auditDepartment"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">审核人</div>
+                    <div class="from_input" id="reviewer">
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">审核时间</div>
+                    <div class="from_input" id="houseCheck_auditTime"></div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right fl">驳回原因</div>
+                <div class="from_input model_check" id="rejectreason_checkbox"></div>
+            </div>
+            <div id="tblContent"></div>
+        </div>
+        <div class="time_box dis" id="houseCheck_time_box">
+            <div class="row label_line_model" id="houseCheck_time_box_weituoshu">
+
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+<!--钥匙操作-->
+<script type="text/html" id="keyOperationTpl">
+    <form id="submit_key1">
+        <input type="hidden" id="operation_hasEntranceCard">
+        <input type="hidden" id="operation_pieceNumber">
+        <input type="hidden" id="operation_inputEmployeeId">
+        <div class="jujiao_model new_paddtxt">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙借还类别</div>
+                    <div class="from_input" id="keyCategory">
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙编号</div>
+                    <div class="from_input" id="key_Number">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙借还人类别</div>
+                    <div  id="keyCategoryPerson" class="from_input">
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">所借店/司</div>
+                    <div class="from_input" id="operateOrganizationName">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">姓名</div>
+                    <div class="from_input key_box" id="operatorName">
+                    </div>
+                    <!--<div class="check_icon_box key_box_raido">-->
+                        <!--<div class="raido_icon_box active fl">-->
+                            <!--<span class="iconfont icon-gouxuan fl"></span>-->
+                        <!--</div>-->
+                        <!--<label class="fl">复印件</label>-->
+                    <!--</div>-->
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">工号</div>
+                    <div class="from_input" id="userNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">身份证</div>
+                    <div class="from_input" id="identityId">
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">联系方式</div>
+                    <div class="from_input" id="phoneNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">其他说明:</div>
+                <div class="from_input">
+                    <textarea  class="textarea" name="explains" id="explains" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
+
+<!--钥匙修改-->
+<script type="text/html" id="keyModificationTpl">
+    <form id="submit_key2">
+        <div class="jujiao_model new_paddtxt hf_box">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">房源编号</div>
+                    <div class="from_input" id="key_houseNumber">
+                    </div>
+                    <input type="hidden" name="id" id="keyId" value="">
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">协议编号</div>
+                    <div class="from_input" id="key_contractNo">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙箱内码</div>
+                    <div class="from_input" id="key_keyBoxNumber">
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">协议到期时间</div>
+                    <div class="from_input" id="key_contractEndDate">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 ui-one new_ys_update">
+                    <div class="input-label width150 txt_right fl">钥匙套数</div>
+                    <div class="from_input rifi_code fl" id="key_suitNumber">
+                    </div>
+                    <div class=" fl" id="modules">
+
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙把数</div>
+                    <div class="from_input" id="key_pieceNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙所属人</div>
+                    <div class="from_input" id="key_keyOwnerName">
+                    </div>
+                    <input type="hidden" name="keyOwner" value="">
+                    <input type="hidden" name="keyNumber" value="">
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">所属部门</div>
+                    <div class="from_input" id="key_belongerDepartmentName">
+                    </div>
+                    <input type="hidden" name="belongerDepartmentId" value="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">录入经纪人</div>
+                    <div class="from_input" id="key_inputEmployeeName">
+                    </div>
+                    <input type="hidden" name="inputEmployeeId" value="">
+                </div>
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">录入时间</div>
+                    <div class="from_input" id="key_inputKeyDate">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="input-label width100 txt_right fl">钥匙当前状态</div>
+                    <div class="from_input" id="key_keyStatusSelect">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 ui-one" >
+                <div class="input-label width150 txt_right fl">上传附件</div>
+                <div class="from_input" id="key_uploadfujian"></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">备注:</div>
+                <div class="from_input">
+                    <textarea class="ui_tarea" id="key_comments" row="3" name='comments'></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
+<!--s申明完备-->
+<script type="text/html" id="declareCompleteTpl">
+    <div class="jujiao_model">
+        <table class="ui-dialog-grid">
+            <tbody>
+            <tr>
+                <td i="body" class="ui-dialog-body">
+                    <div i="content" class="ui-dialog-content new_paddtxt">
+                        <div class="row">
+                            <div class="rule_txt red col-md-12">
+                                （温馨提示：以实际为准，不要填错，如填错会驳回处理）
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-label width100 txt_right  fl">驳回原因:</div>
+                                <div class="from_input key_box">
+                                    <div class="check_icon_box clearfix fl">
+                                        <div class="raido_icon_box active fl">
+                                            <span class="iconfont icon-gouxuan fl"></span>
+                                        </div>
+                                        <label class="fl">房源无效</label>
+                                    </div>
+                                    <div class="check_icon_box clearfix fl">
+                                        <div class="raido_icon_box active fl">
+                                            <span class="iconfont icon-gouxuan fl"></span>
+                                        </div>
+                                        <label class="fl">其它</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-label width100 txt_right  fl">备注:</div>
+                                <div class="from_input">
+                                    <textarea  class="textarea"  rows="3" id="checkRemark"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>
+<!--房源限时审核-->
+<script type="text/html" id="houseLimitCheckTpl">
+    <div class="jujiao_model new_paddtxt">
+        <div class="col-xs-12 selt_box_two new_box_nav">
+            <div class="new_box_in">
+                <div class="selt_fl fl active" data-type="1">房源申请审核</div>
+                <div class="selt_fl fl " data-type="2">限时申请审核</div>
+                <div class="selt_fr fr" data-type="3">房堪</div>
+            </div>
+        </div>
+        <div class="Apply_box" id="limit_Apply_box">
+            <div class="row label_line_model">
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">房源编号</div>
+                    <div class="from_input " id="limit_houseNumber"> </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">业务类型</div>
+                    <div class="from_input" id="limit_houseType"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">申请人</div>
+                    <div class="from_input" id="limit_applicant"> </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">申请部门</div>
+                    <div class="from_input" id="limit_applicantDepartment"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">联系电话</div>
+                    <div class="from_input" id="limit_tel">
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">申请时间</div>
+                    <div class="from_input" id="limit_applicantTime"></div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="input-label width100 txt_right  fl">审核备注</div>
+                    <div class="from_input" >
+                        <textarea  class="textarea" placeholder="" rows="3" id="limit_applicantRemarks"></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">部门</div>
+                    <div class="from_input" id="limit_auditDepartment"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">审核人</div>
+                    <div class="from_input" id="limit_reviewer">
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">审核时间</div>
+                    <div class="from_input" id="limit_auditTime"></div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right fl">驳回原因</div>
+                <div class="from_input model_check" id="limit_rejectreason_checkbox"></div>
+            </div>
+            <div id="limit_tblContent"></div>
+        </div>
+        <div class="time_box dis" id="limit_time_box">
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托编号</div>
+                <div class="from_input" id="limit_contractNo"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托类型</div>
+                <div class="from_input" id="limit_delegateType">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">楼盘名称</div>
+                <div class="from_input" id="limit_lpName"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">协议开始时间</div>
+                <div class="from_input" id="limit_beginDate"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">协议结束时间</div>
+                <div class="from_input" id="limit_endDate"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">协议签订时间</div>
+                <div class="from_input" id="limit_signDate"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">限时代卖部门</div>
+                <div class="from_input" id="limit_exclusivePersonBmId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">限时代卖人</div>
+                <div class="from_input" id="limit_exclusivePersonId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">联系电话</div>
+                <div class="from_input" id="limit_exclusivePersonPhone"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托面积</div>
+                <div class="from_input" id="limit_delegateSize"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托价格</div>
+                <div class="from_input" id="limit_delegatePrice"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">保证金金额</div>
+                <div class="from_input" id="limit_ensurePrice"></div>
+            </div>
+            <div id="limit_uploadType">
+
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        限时委托代理销售协议
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" >
+                        <ul id="limit_agreement"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        附件
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="limit_enclosure">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fankan_box dis" id="limit_fankan_box">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        户型图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="limit_hxImg">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        室内图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="limit_indoorImg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        室外图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="limit_document">
+                    </div>
+                </div>
+            </div>
+            <div class="rule_txt marginlr red">
+                <p  class="font12"><span class="red">提示：</span>上传图片大小要求格式：1MB，且如果上传图片过程中出现断点提示，是由于图片较大，请减少一次上传数量</p>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--房源独家限预审核-->
+<script type="text/html" id="exclusiveTimeCheckTpl">
+    <div class="jujiao_model new_paddtxt">
+            <div class="row label_line_model">
+                <p class="red font14 model_bzhu" style="">您是否仔细阅读独家限时代卖信息，是否审核？</p>
+                <div class="col-xs-12">
+                    <div class="input-label width100 txt_right fl">类型</div>
+                    <div id="enclosure" class="from_input">
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="input-label width100 txt_right  fl">审核备注</div>
+                    <div class="from_input" >
+                        <textarea  class="textarea" placeholder="" rows="3" id="exclusive_applicantRemarks"></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">部门</div>
+                    <div class="from_input" id="exclusive_auditDepartment"></div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">审核人</div>
+                    <div class="from_input" id="exclusive_reviewer">
+                    </div>
+                </div>
+                <div class="col-xs-4 ">
+                    <div class="input-label width100 txt_right fl">审核时间</div>
+                    <div class="from_input" id="exclusive_auditTime"></div>
+                </div>
+            </div>
+    </div>
+</script>
+
+<!--房源独家限无效操作-->
+<script type="text/html" id="exclusiveVoidTpl">
+    <div class="jujiao_model new_paddtxt">
+        <div class="row label_line_model">
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">无效原因</div>
+                <div class="from_input" >
+                    <textarea  class="textarea" placeholder="" rows="3" id="exclusiveVoid_applicantRemarks"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+<!--房源独家限时查看-->
+<script type="text/html" id="houseSeeCheckTpl">
+    <div class="jujiao_model new_paddtxt">
+        <div class="col-xs-12 selt_box_two new_box_nav">
+            <div class="new_box_in">
+                <div class="selt_fl fl active" data-type="2">限时申请审核</div>
+                <div class="selt_fr fr" data-type="3">房堪</div>
+            </div>
+        </div>
+        <div class="time_box" id="exclusive_time_box">
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托编号</div>
+                <div class="from_input" id="exclusive_contractNo"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托类型</div>
+                <div class="from_input" id="exclusive_delegateType">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">楼盘名称</div>
+                <div class="from_input" id="exclusive_lpName"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">协议开始时间</div>
+                <div class="from_input" id="exclusive_beginDate"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">协议结束时间</div>
+                <div class="from_input" id="exclusive_endDate"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">协议签订时间</div>
+                <div class="from_input" id="exclusive_signDate"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">限时代卖部门</div>
+                <div class="from_input" id="exclusive_exclusivePersonBmId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">限时代卖人</div>
+                <div class="from_input" id="exclusive_exclusivePersonId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">联系电话</div>
+                <div class="from_input" id="exclusive_exclusivePersonPhone"> </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托面积</div>
+                <div class="from_input" id="exclusive_delegateSize"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">委托价格</div>
+                <div class="from_input" id="exclusive_delegatePrice"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">保证金金额</div>
+                <div class="from_input" id="exclusive_ensurePrice"></div>
+            </div>
+            <div id="exclusive_uploadType">
+
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        限时委托代理销售协议
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="exclusive_agreement">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        附件
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="exclusive_enclosure">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 ">
+                <div class="input-label width100 txt_right  fl">备注</div>
+                <div class="from_input">
+                    <textarea  class="textarea" id="exclusive_comment" placeholder="" rows="3" disabled></textarea>
+                </div>
+            </div>
+            <div class="col-xs-12 ">
+            <div class="input-label width100 txt_right  fl">审核备注</div>
+            <div class="from_input">
+                <textarea  class="textarea" id="exclusive_checkcomment" placeholder="" rows="3" disabled></textarea>
+            </div>
+        </div>
+        <div class="col-xs-6 bottom_15">
+            <div class="input-label width100 txt_right fl">处理人</div>
+            <div class="from_input" id="exclusive_handleperson"></div>
+        </div>
+        <div class="col-xs-6 bottom_15">
+            <div class="input-label width100 txt_rightexclusive_handleData fl">处理时间</div>
+            <div class="from_input" id="exclusive_handleData"></div>
+        </div>
+    </div>
+        </div>
+        <div class="fankan_box dis" id="exclusive_fankan_box">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        户型图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="exclusive_hxImg">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        室内图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="exclusive_indoorImg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        室外图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body" id="exclusive_document">
+                    </div>
+                </div>
+            </div>
+            <div class="rule_txt marginlr red">
+                <p  class="font12"><span class="red">提示：</span>上传图片大小要求格式：1MB，且如果上传图片过程中出现断点提示，是由于图片较大，请减少一次上传数量</p>
+            </div>
+        </div>
+    </div>
+</script>
+<style>
+    .width100~.new_frominput{ padding-left: 0; padding-left: 10px;}
+    .width100+.new_frominput{ padding-left: 15px;}
+</style>
+<!--录入房源的地址申请-->
+<script type="text/html" id="addressApply">
+    <div i="content" class="ui-dialog-content jujiao_model">
+
+        <div class="row">
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">楼盘:</div>
+                <div class="from_input" id="sub_lpId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">城市</div>
+                <div class="from_input" id="sub_cityId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">城区</div>
+                <div class="from_input" id="sub_stressId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">商圈</div>
+                <div class="from_input" id="sub_sqId"></div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">楼座</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" id="sub_zdId"  placeholder="请输入栋座">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">单元</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" id="sub_dyId"  placeholder="请输入单元">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">所在楼层</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" id="sub_lcId"  placeholder="请输入楼层">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">总楼层</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" id="sub_taltollou"  placeholder="请输入总楼层">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">面积</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" id="sub_mianji"  placeholder="请输入面积">
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">门牌号</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc" id="sub_fanghaoId">
+                </div>
+            </div>
+        </div>
+        <div class="row bottom_0">
+            <div class="col-xs-12 ">
+                <div class="input-label width100 txt_right  fl">申请备注</div>
+                <div class="from_input">
+                    <textarea  class="textarea" id="sub_comment" placeholder="请写明申报此问题的具体原因：哪里错了，下架是否告知，如没有写明原因的会驳回不予受理、不予告知，请各伙伴们配合，谢谢" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">申请人</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc ui-disabled" id="sub_applyuser" disabled="disabled">
+                </div>
+            </div>
+
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">所属部门:</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc ui-disabled" id="sub_applydept" disabled="disabled">
+                </div>
+            </div>
+            <div>
+
+                <div class="col-xs-4  bottom_15">
+                    <div class="input-label width100 txt_right fl">联系号码:</div>
+                    <div class="from_input">
+                        <input type="text" class="input-box pholder_color_cc" id="sub_phone" placeholder="请输入联系号码">
+                    </div>
+                </div>
+            </div>
+            <p class="col-xs-12">（楼盘字典部联系电话：18670312565 18670312797）</p>
+            <p class="red_p  col-xs-12">温馨提示：地址申请是取实际标识的地址为第一准则，产权地址为后选地址。内网系统没有的新楼盘，只有店长有权限提交楼盘采集申请。经楼盘字典审核通过生效后，在找房源中心划盘才能进行房源录入操作。</p>
+        </div>
+    </div>
+ </script>
+
+<!--录入房源的推荐专家-->
+<script type="text/html" id="lpzhuanjia">
+    <div  class="jujiao_model">
+        <table class="ui-check-table ">
+            <thead>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+                <td>序号</td>
+                <td>专家名</td>
+                <td>所属店</td>
+                <td>房源录入</td>
+                <td>限时</td>
+                <td>钥匙</td>
+                <td>房堪</td>
+                <td>成交</td>
+            </tr>
+            </thead>
+            <tbody id="lpzhuanjia_body">
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<!--全部房源楼盘专家-->
+<script type="text/html" id="allHouse_lpzj">
+   <div id="lpzj_tbl"></div>
+   <div style="width:100%;padding:0 10px;">
+       <div><font style="class:small">楼盘专家的标准
+           <br>
+           1、时间：每月8-9日依据前三个月纬度评定，由系统自动生成和记录，根据算法结果进行排名
+           <br>
+           2、条件：入职三个月以上已转正的综合经纪人
+           <br>
+           3、纬度算法：得分=房源录入套数*10%+房勘录入套数*10%+限时录入套数*20%+钥匙录入套数*10%+成交套数*50%
+       </font></div>
+   </div>
+</script>
+
+<!--房源中心锁定-->
+<script type="text/html" id="centerLockTpl">
+    <div class="jujiao_model new_paddtxt">
+        <div class="row label_line_model">
+            <div class="col-xs-12" id="lockDateDiv">
+                <div class="input-label width100 txt_right fl">自动解锁时间</div>
+                <div class="from_input" id="lockDate"></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl" id="opreateReasonDiv">锁定原因</div>
+                <div class="from_input" >
+                    <textarea  class="textarea" placeholder="" rows="3" id="opreateReason"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!--转X-->
+<script  type="text/html" id="turnXdiskTpl">
+    <div  class="jujiao_model">
+        <div class="selt_box_two col-lg-12 bottom_15  fl new_box_nav clearfix">
+            <div class="new_box_in">
+                <div class="selt_fl fl active" data-type="2">限时信息</div>
+                <div class="selt_fr fr" data-type="3">房堪</div>
+            </div>
+        </div>
+        <div class="time_box" id="turnXdisk_time_box">
+            <div class="row bottom_0">
+                <div class="times">
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">委托编号</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box disabled " id="contractNo" placeholder="委托编号">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">委托类型</div>
+                        <div class="from_input" id="gs_delegateType"></div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">楼盘名称</div>
+                        <div class="from_input ">
+                            <input type="text" class="input-box disabled pholder_color_cc" id="lpName" readonly="readonly">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15" style="height:30px;">
+                        <button class="btn input_btn tianchong" style="right:auto;padding:0px;">填充</button>
+                    </div>
+                </div>
+                <div class="clears times">
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">协议开始时间</div>
+                        <div class="from_input " id="beginDate">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">协议到期时间</div>
+                        <div class="from_input" id="endDate">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">协议签订时间</div>
+                        <div class="from_input" id="signDate" >
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">限时代卖部门</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box disabled  pholder_color_cc" readonly="readonly" id="exclusivePersonBmId" placeholder="限时代卖部门">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">限时代卖人</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box disabled pholder_color_cc" readonly="readonly" id="exclusivePersonId" placeholder="限时代卖人">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">限时代卖人电话</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box disabled  pholder_color_cc" id="phone" placeholder="限时代卖人电话">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">委托面积</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box  disabled pholder_color_cc" id="delegateSize" placeholder="委托面积">
+                            <span class="input_txt_rt">㎡</span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">委托价格</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box disabled pholder_color_cc" id="delegatePrice" placeholder="委托价格">
+                            <span class="input_txt_rt">万</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 bottom_15">
+                        <div class="input-label width100 txt_right fl">保证金额</div>
+                        <div class="from_input">
+                            <input type="text" class="input-box disabled pholder_color_cc" id="ensurePrice" placeholder="保证金金额">
+                            <span class="input_txt_rt">元</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-body new_panel_padd etype"></div>
+                <div class="row">
+                    <div class="col-md-8">
+                    </div>
+                </div>
+                <div class="panel marginlr">
+                    <div class="panel-heading">
+                        限时委托代理销售协议<span class="red">(请上传原件)</span>
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="page-wrapper-cont paddingnone margin-bottom10">
+                        <div class="row" id="uploadxy">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel marginlr">
+                    <div class="panel-heading">
+                        <div class="fl">
+                            附件<span class="red">(请上传身份证,产权证或者国土证X必须上传)</span>
+                        </div>
+                        <div class="selput_box map_selrd fl isCopy">
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="page-wrapper-cont paddingnone margin-bottom10">
+                        <div class="row" id="uploadfj">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel marginlr">
+                    <div class="panel-heading">
+                        备注
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="panel-body">
+                        <textarea class="txtrea add_txtrea disabled " id="comments"></textarea>
+                    </div>
+                </div>
+                <div class="rule_txt marginlr red">
+                    <p>《限时委托》必须遵循以下规则：</p>
+                    <p>1、签订《限时委托代理销售协议》及上传《限时委托代理销售协议》(原件)及附件到系统。</p>
+                    <p>附件：（1）产权人身份证;</p>
+                    <p style="padding-left:35px;">（2）产权证或者是国土证（没有下产权的：购房合同和贷款合同）;</p>
+                    <p>2、限时委托代理销售协议签订时间和到期时间都要完整添加，不然系统会自动下架。</p>
+                    <p>3、如果限时委托代理销售协议是委托人签字，必须要提供资料证明产权人和委托人的双方关系。</p>
+                    <p> 长沙产品管控部温馨提示：产品管控部座机83869185　83871396 请家人及时跟进限时审核进度，限时如有疑问请致电。</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="fankan_box dis" id="turnXdisk_box">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        户型图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="page-wrapper-cont paddingnone margin-bottom10">
+                        <div class="row count_xs" id="uploadhx">
+                        </div>
+                    </div>
+                    <!--<div class="col-md-11" id="uploadhx">-->
+
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        室内图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="page-wrapper-cont paddingnone margin-bottom10">
+                        <div class="row count_xs" id="uploadsn">
+                        </div>
+                    </div>
+                    <!--<div class="col-md-11" id="uploadsn">-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        室外图
+                        <div style="clear:both"></div>
+                    </div>
+                    <div class="page-wrapper-cont paddingnone margin-bottom10">
+                        <div class="row count_xs" id="uploadzjzl">
+                        </div>
+                    </div>
+                    <!--<div class="col-md-11" id="uploadzjzl">-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="rule_txt marginlr red">
+                <p  class="font12"><span class="red">提示：</span>上传图片大小要求格式：1MB，且如果上传图片过程中出现断点提示，是由于图片较大，请减少一次上传数量</p>
+            </div>
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">实勘店组</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc ui-disabled" readonly="readonly"  id="copyBmId"  placeholder="">
+                </div>
+            </div>
+
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">实勘人</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc ui-disabled" readonly="readonly" id="copyPersonId"  placeholder="">
+                </div>
+            </div>
+
+            <div class="col-xs-4 bottom_15">
+                <div class="input-label width100 txt_right fl">创建时间</div>
+                <div class="from_input">
+                    <input type="text" class="input-box pholder_color_cc ui-disabled" id="createTime" readonly="readonly"   placeholder="">
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<!--取消聚焦-->
+<script type="text/html" id="cancelFocusTpl">
+    <div class="jujiao_model new_paddtxt">
+        <div class="row label_line_model">
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right  fl">原因</div>
+                <div class="from_input" >
+                    <textarea  class="textarea" placeholder="" rows="3" id="cancelRemark"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<!--锁盘-->
+<script type="text/html" id="suopanTpl">
+    <form id="houseLockSubmit">
+        <div class="row bottom_0 jujiao_model" >
+            <div class="col-xs-12">
+                <div class="input-label width100 txt_right fl">申请期限</div>
+                <div class="form-table selput_box" style="padding-left:15px;">
+                    <div class="from_input selput_sel" id="sp_lockDate">
+                    </div>
+                    <div class="from_input selput_input">
+                        <input type="text" name="lockDate" id="sp_lockDate_1" class="input-box pholder_color_cc ui-disabled" readonly value="">
+                        <input type="hidden" name="type" value="1724">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 ">
+                <div class="input-label width100 txt_right fl">申请原因</div>
+                <div class="from_input" id="sp_disableReason">
+                </div>
+            </div>
+
+            <div class="col-xs-12 ">
+                <div class="input-label width100 txt_right  fl">申请备注</div>
+                <div class="from_input" >
+                    <textarea  class="textarea" name="alternateReason" id="sp_alternateReason" placeholder="请写明申报此问题的具体原因：哪里错了，下架是否告知，如没有写明原因的会驳回不予受理、不予告知，请各伙伴们配合，谢谢" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">房源编号</div>
+                <div class="from_input">
+                    <input type="text" id="sp_houseNumber" name="houseNumber" class="input-box pholder_color_cc ui-disabled" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="col-xs-6 bottom_15">
+                <div class="input-label width100 txt_right fl">申请部门:</div>
+                <div class="from_input">
+                    <input type="text"  class="input-box pholder_color_cc ui-disabled" id="sp_requestDepartmentName" readonly="readonly">
+                    <input type="hidden" name="requestDepartmentId" id="sp_requestDepartmentId">
+                </div>
+            </div>
+            <div>
+
+                <div class="col-xs-6  bottom_15">
+                    <div class="input-label width100 txt_right fl">申请人:</div>
+                    <div class="from_input">
+                        <input type="text"  class="input-box pholder_color_cc ui-disabled" id="sp_requesterName" readonly="readonly">
+                        <input type="hidden" name="requesterId" id="sp_requesterId">
+                    </div>
+                </div>
+            </div>
+
+            <p class="red_p  col-xs-12">注意：已收诚意金需要锁盘的必须上传诚意金合同与转账凭条。</p>
+            <div class="col-xs-12 fankan_list_box ">
+                <div class="input-label width100 txt_right fl">上传附件:</div>
+                <div class="col-md-11" id="uploadwts" style="padding-left: 0;">
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
+
+<!--修改-->
+<script type="text/html" id="xiugaiTpl">
+    <div class="row hf_box">
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl ">房源编号</div>
+            <div class="from_input">
+                <input type="text" name="number" class="input-box pholder_color_cc ui-disabled" id="xiugai_number" placeholder="" readonly>
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl ">推荐店组</div>
+            <div class="from_input">
+                <div class="ptf_seaSelectM" id="xiugai_departmentId">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 ui-one">
+            <div class="input-label width150 txt_right fl ">接受人</div>
+            <div class="from_input">
+                <div class="ptf_seaSelectM" id="xiugai_personId">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

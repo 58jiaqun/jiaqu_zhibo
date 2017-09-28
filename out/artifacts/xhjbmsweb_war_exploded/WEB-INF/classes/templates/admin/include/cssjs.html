@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Xenon Boostrap Admin Panel"/>
+<meta name="author" content=""/>
+<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="/font/css/iconfont.css">
+<link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/dialog.css">
+<link rel="dns-prefetch" href="https://xhjcom.oss-cn-shenzhen.aliyuncs.com">
+<script src="https://xhjcom.oss-cn-shenzhen.aliyuncs.com/dist/r.js"></script>
+<style type="text/css">
+    .inputerr{border:1px red solid !important;}
+</style>
+<script>
+    require.config({
+        //baseUrl: '/modules/',
+        //baseUrl: 'http://192.168.1.82:3000/modules/',
+        baseUrl: 'https://xhjcom.oss-cn-shenzhen.aliyuncs.com/dist/',
+        urlArgs: function () {
+		    return '?t=' + Math.ceil(Date.now() / 1800000)
+		},
+      waitSeconds: 15
+    });
+    var loginUser = {};
+    require(['jquery','util'], function ($,util) {
+        var key = ["username", "auth_cityId","deptId","sso_token", "titleId", "marketLevel",'userId'];
+        for (var i = 0; i < key.length; i++) {
+            loginUser[key[i]] = util.cookie.get(key[i]);
+        }
+    });
+    var btnkeys = ${btnkeys};
+</script>

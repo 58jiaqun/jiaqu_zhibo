@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>房源列表</title>
+    <%include("/admin/include/cssjs.html"){}%>
+    <style>
+        .mytable{
+            border:none;
+        }
+        ._s_t_wrapper th, ._s_t_wrapper td{
+            border-left: none;
+            border-bottom: none;
+        }
+        .but_aut:hover .new_sel_bx{
+            display: block;}
+        .but_aut{ height: 200px;}
+    </style>
+</head>
+<body>
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="table-screen-box pr">
+            <a  class="more_seach_list">高级搜索</a>
+            <div class="but_aut dis">
+                <div class="but_sel_new  pr fl" >
+                    <span class="sel_new_txt ">新增房源</span>
+                    <span class="icon-sanjiaoxingxiangxia iconfont"></span>
+                    <div class="but_sel_box new_sel_bx dis">
+                        <ul id="saveHouse">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div id="search_condition" style="margin-bottom: 20px;">
+
+                </div>
+                <dl class="seach_box_sel new_sel_pul">
+                    <dt class="margintd">
+                        筛选：
+                    </dt>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="orientationID">
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="useage">
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="decorationStandard"></div>
+                    </dd>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="buildingType">
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="ctitle">
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="isEncryption">
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="ptf_seaSelectM" id="houseSourceStatus">
+                        </div>
+                    </dd>
+                </dl>
+                <div class="seach_box_ipt seach_box_little pr row">
+                    <div class="margintd row_hread_btn">
+                        其他：
+                    </div>
+                    <div class="row row_info_btn">
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">房源编号:</div>
+                            <div class="from_input" id="house_no">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">楼盘名称:</div>
+                            <div class="from_input" id="lp_name">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">栋座:</div>
+                            <div class="from_input" id="house_build">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">单元:</div>
+                            <div class="from_input" id="house_unit">
+                            </div>
+                        </div>
+                        <div class="col-md-4 fanghaoDiv" style="display: none;">
+                            <div class="input-label width70 txt_right fl">房号:</div>
+                            <div class="from_input distable house_input_box" id="fanghao">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">室:</div>
+                            <div class="from_input distable house_input_box" id="house_room">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">厅:</div>
+                            <div class="from_input distable house_input_box" id="house_hall">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">楼层:</div>
+                            <div class="from_input distable house_input_box" id="house_floor">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">面积:</div>
+                            <div class="from_input distable house_input_box" id="house_buildingsize">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">录入时间:</div>
+                            <div class="from_input distable house_input_box" id="house_entry_time">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">归属部门:</div>
+                            <div class="from_input" id="house_belong">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-label width70 txt_right fl">经纪人:</div>
+                            <div class="from_input"id="house_person">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="new_btn btn-secondary  font14" id="search">搜索</button>
+                            <button class="new_btn btn-gred" id="reset">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="more_icon">-->
+            <!--<div class="screen_txt">-->
+            <!--<label class="fl">筛选条件：</label>-->
+            <!--<span>A盘</span>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="page-container">
+            <div class="main-content">
+                <div class="row pr">
+                    <div class="page-wrapper-cont">
+                        <div class="switch_tab status">
+                            <ul class="fl" >
+
+                            </ul>
+                            <div class="fr house_num">共<span id="recordCount"></span>条房源</div>
+                            <!--<div class="fr sort_num">默认排序<span class="iconfont icon-0030-copy"></span></div>-->
+                        </div>
+                        <div class="tab_cont tab_double">
+                            <div id="tblContent">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%include("/admin/include/dialogTbl.html"){}%>
+<script>
+    require(['bms_all_list','bms_house_operation'], function (list, operation) {
+        operation.transfer.on('data.change', function () {
+            list.fetchData();
+        });
+    });
+</script>
+</body>
+</html>

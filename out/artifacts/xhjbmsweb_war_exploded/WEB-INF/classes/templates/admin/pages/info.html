@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>房源详情</title>
+    <%include("/admin/include/cssjs.html"){}%>
+    <link rel="stylesheet" href="/css/viewer.min.css">
+</head>
+<body>
+<div class="page-container">
+    <div class="main-content">
+        <!--<h2 class="little">-->
+        <!--详情-->
+        <!--</h2>-->
+        <div class="panel house_hread_info">
+            <h4>房源编号：<font id="houseNumber"></font><span class="iconfont" id="panSourceType"></span></h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul id="images"
+                        style="float: left;width: 100px;height: 100px;overflow: hidden;margin-right: 20px"></ul>
+                    <div class="fl resou_txt">
+                        <h5 id="ToplpName"><span></span></h5>
+                        <p class="font16" id="price"></p>
+                        <div class="core_box">
+                            <button class="fl Pro-btn btn-success btn_look hexinxinxi" id="lookCoreInfo">查看核心信息
+                            </button>
+                            <div class="but_sel pr fl caozou">
+                                <span>操作</span>
+                                <span class="icon-sanjiaoxingxiangxia iconfont"></span>
+                                <div class="but_sel_box new_sel_bx dis new_btnset" id="but_sel_box">
+                                    <ul id="OperationMenu"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-3">
+                <p class="font14" id="useagename"></p>
+                <p class="font14" id="roomNumber"></p>
+                <div class="config_btn" id="tipType">
+
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="col-md-6">
+                    <p class="font14" id="saleOrRent">类型：<span></span></p>
+                    <p class="font14" id="belongerStore">归属店组：<span></span></p>
+                    <p class="font14" id="creatTime">录入时间：<span></span></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="font14" id="follow">跟进：<span></span></p>
+                    <p class="font14" id="belongerName">归属人：<span></span></p>
+                    <p class="font14" id="diskSource">盘源：<span></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pr">
+        <div class="page-wrapper-cont">
+            <div class="switch_tab margin_bottom10">
+                <ul class="fl">
+                    <li class="active">
+                        房源信息
+                    </li>
+                    <li>
+                        跟进记录
+                    </li>
+                    <li>
+                        带看记录
+                    </li>
+                    <li>
+                        最新动态
+                    </li>
+                    <li>
+                        角色信息
+                    </li>
+                    <li>
+                        点评
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="switch_panel tion-house house_info">
+
+                </div>
+                <div class="switch_panel table_info info_list dis tion-house">
+                    <div class="panel-body" id="genjinjilu">
+
+                    </div>
+                </div>
+                <div class="switch_panel table_info info_list dis tion-house">
+                    <div class="panel-body" id="daikanjilu">
+
+                    </div>
+                </div>
+                <div class="switch_panel info_list dis tion-house">
+                    <div class="panel-body" id="zuixindongtai">
+
+                    </div>
+                </div>
+                <div class="switch_panel table_info dis info_list tion-house">
+                    <div class="panel-body" id="juesexinxi">
+
+                    </div>
+                </div>
+                <div class="switch_panel table_info info_list dis tion-house">
+                    <div>
+                        <div class="row pantable_hread">
+                            <div class="col-md-4">
+                                点评标题
+                            </div>
+                            <div class="col-md-8">
+                                点评信息
+                            </div>
+                        </div>
+                        <div class="panel-body" id="dianping">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<%include("/admin/include/dialogTbl.html"){}%>
+<script>require(['bms_house_operation','bms_houseDetails'])</script>
+</html>

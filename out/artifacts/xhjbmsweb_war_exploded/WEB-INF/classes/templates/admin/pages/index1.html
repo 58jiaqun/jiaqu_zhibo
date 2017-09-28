@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>房源列表</title>
+    <%include("/admin/include/cssjs.html"){}%>
+    <style>
+        .dd a{
+            text-decoration:none;
+            color:#000000;
+        }
+        .complete{
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row content">
+    <div class="page-wrapper tion-house">
+        <div class="table-screen-box">
+            <div class="row">
+                <dl>
+                    <dt style="width:75px;">功能一： </dt>
+                    <dd><a  class="complete" href="/page/house_all_list?pageType=allHouse" target="_blank" >全部售房</a></dd>
+                    <dd><a href="/page/house_list?pageType=groupHouse" target="_blank" class="complete" >本组售房</a> </dd>
+                    <dd><a href="/page/house_list?pageType=myHouse" target="_blank" class="complete">我的售房</a></dd>
+                    <dd><a href="/page/house_contract?businessType=1" target="_blank" >托进合同</a> </dd>
+                    <dd><a href="/page/house_contract?businessType=2" target="_blank" >拖出合同</a> </dd>
+                    <dd><a href="/page/house_contractManage" target="_blank" >托管资源</a> </dd>
+                    <dd class="dd"><a href="#" target="_blank" >托管资源详情</a> </dd>
+                </dl>
+                <dl>
+                    <dt style="width:75px;">功能二： </dt>
+                    <dd><a href="/page/house_all_list?pageType=allRent" target="_blank"  class="complete" >全部租房</a> </dd>
+                    <dd><a href="/page/house_list?pageType=groupRent" target="_blank" class="complete" >本组租房</a> </dd>
+                    <dd><a href="/page/house_list?pageType=myRent" target="_blank" class="complete">我的租房</a> </dd>
+                </dl>
+            </div>
+            <br>
+            <div class="row">
+                <dl>
+                    <dt style="width:75px;">功能三： </dt>
+                    <dd><a href="/page/addHouseSource?type=41&option=1&housetype=1" target="_blank" class="complete">房源录入住宅（售）</a></dd>
+                    <dd><a href="/page/addHouseSource?type=43&option=1&housetype=1" target="_blank" class="complete">房源录入商铺（售）</a></dd>
+                    <dd><a href="/page/addHouseSource?type=42&option=1&housetype=1" target="_blank" class="complete">房源录入写字楼（售）</a></dd>
+                    <dd><a href="/page/addHouseSource?type=44&option=1&housetype=1" target="_blank" class="complete">房源录入别墅（售）</a></dd>
+                </dl>
+                <dl>
+                    <dt style="width:75px;">功能四： </dt>
+                    <dd><a href="/page/addHouseSourceByRent?type=41&option=1&housetype=2" target="_blank" class="complete">房源录入住宅（租）</a></dd>
+                    <dd><a href="/page/addHouseSourceByRent?type=43&option=1&housetype=2" target="_blank" class="complete">房源录入商铺（租）</a></dd>
+                    <dd><a href="/page/addHouseSourceByRent?type=42&option=1&housetype=2" target="_blank" class="complete">房源录入写字楼（租）</a></dd>
+                    <dd><a href="/page/addHouseSourceByRent?type=44&option=1&housetype=2" target="_blank" class="complete">房源录入别墅（租）</a></dd>
+                </dl>
+            </div>
+            <br>
+            <div class="row">
+                <dl>
+                    <dt style="width:75px;">功能五： </dt>
+                    <dd ><a href="/page/house_invalid_check?pageType=districtCheck" target="_blank" class="complete">商圈经理房源审核</a></dd>
+                    <dd ><a href="/page/house_invalid_check?pageType=coreInfoCheck" target="_blank" >核心信息审核</a></dd>
+                    <dd ><a  href="/page/house_invalid_check?pageType=invalidCheck"  class="complete" target="_blank" >房源无效审核</a></dd>
+                    <dd ><a href="/page/house_all_list?pageType=saleCenter" target="_blank"class="complete" >房源中心综合查询（售）</a></dd>
+                    <dd ><a href="/page/house_all_list?pageType=rentCenter"  target="_blank" class="complete">房源中心综合查询（租）</a></dd>
+                    <dd ><a href="/page/house_invalid_check?pageType=houseAuditCheck" target="_blank" class="complete">房源审核</a></dd>
+                    <dd ><a href="/page/house_invalid_check?pageType=houseLimitCheck" target="_blank" class="complete">限时房源审核</a></dd>
+                    <dd ><a href="/page/house_invalid_check?pageType=exclusiveEra"  target="_blank" class="complete">独家限时代卖（房源中心）</a></dd>
+                </dl>
+            </div>
+            <br/>
+            <div class="row">
+                <dl>
+                    <dt style="width:75px;">功能六： </dt>
+                    <dd><a href="/page/house_focus?pageType=focusHouseSal" target="_blank" class="complete" >聚焦房源（售）</a></dd>
+                    <dd ><a href="/page/house_public_list?pageType=keySal" target="_blank" class="complete">重点房源（售）</a></dd>
+                    <dd ><a href="/page/house_public_list?pageType=myAttentionHouse" target="_blank" class="complete">我的关注（售）</a></dd>
+                    <dd ><a href="/page/house_all_list?pageType=cShareSale" target="_blank" class="complete">共享C盘（售）</a></dd>
+                    <dd ><a href="/page/my_keys?pageType=myKeysSal" target="_blank"class="complete" >我的钥匙（售）</a></dd>
+                    <dd><a href="/page/house_focus?pageType=focusHouseRent" target="_blank" class="complete">聚焦房源（租）</a></dd>
+                    <dd ><a href="/page/house_public_list?pageType=keyRent" target="_blank" class="complete">重点房源（租）</a></dd>
+                    <dd ><a href="/page/house_public_list?pageType=myAttentionRent" target="_blank"class="complete" >我的关注（租）</a></dd>
+                    <dd ><a href="/page/house_all_list?pageType=cShareRent" target="_blank" class="complete">共享C盘（租）</a></dd>
+                    <dd><a href="/page/my_keys?pageType=myKeysRent" target="_blank" class="complete">我的钥匙（租）</a></dd>
+                    <dd><a href="/page/my_keys?pageType=groupKeysSal" target="_blank" class="complete">本组钥匙（售）</a></dd>
+                    <dd><a href="/page/my_keys?pageType=groupKeysRent" target="_blank" class="complete">本组钥匙（租）</a></dd>
+                </dl>
+            </div>
+            <br/>
+            <div class="row">
+                <dl>
+                    <dt style="width:100px;">BMS配置：</dt>
+                    <dd><a href="/page/config">主流程</a></dd>
+                    <dd><a href="/page/demo">Demo</a></dd>
+                </dl>
+            </div>
+            <div class="page-wrapper-cont"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    require(['userinfo'], function (userinfo) {
+       userinfo({userId: loginUser.username});
+    })
+</script>
+</html>

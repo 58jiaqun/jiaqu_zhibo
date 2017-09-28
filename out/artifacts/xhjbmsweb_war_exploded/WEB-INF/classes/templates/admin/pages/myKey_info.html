@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <%include("/admin/include/cssjs.html"){}%>
+</head>
+<body>
+<div class="page-container">
+    <div class="main-content">
+        <div class="panel house_hread_info">
+            <h4>房源编号：<label id="number"></label></h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <img id="imgpath" src="http://www.xhj.com/web/images/nopic.gif" width="100" height="100" class="fl">
+                    <div class="fl resou_txt">
+                        <div class="col-md-12">
+                            <h5><label id="lpName"></label></h5>
+                            <p class="font14">钥匙所属人：<label id="keyOwnerName"></label></p>
+                            <p class="font14">所属部门：<label id="departmentName"></label></p>
+                        </div>
+                        <div class="core_box">
+                            <div class="but_sel pr fl">
+                                <span>操作</span>
+                                <span class="icon-sanjiaoxingxiangxia iconfont"></span>
+                                <div class="but_sel_box dis">
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <p class="font14">钥匙套数：<label id="suitNumber"></label>套</p>
+                    <p class="font14">钥匙把数：<label id="pieceNumber"></label>把</p>
+                    <p class="font14">钥匙箱内码：<label id="keyNumber"></label></p>
+                </div>
+                <div class="col-md-5">
+                    <div class="col-md-6">
+                        <p class="font14">录入经纪人：<label id="inputEmployeeName"></label></p>
+                        <p class="font14">签约时间：未输入</p>
+                        <p class="font14">录入时间：<label id="inputKeyDate"></label></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pr">
+            <div class="page-wrapper-cont">
+                <div class="switch_tab margin_bottom10">
+                    <ul class="fl">
+                        <li>
+                            钥匙操作记录
+                        </li>
+                    </ul>
+                </div>
+                <div class="switch_panel info_list tion-house">
+                    <div class="panel" id="resultList">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%include("/admin/include/dialogTbl.html"){}%>
+<script>
+    require(['myKey_info'])
+</script>
+</body>
+</html>
